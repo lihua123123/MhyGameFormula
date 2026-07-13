@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "vite build && node scripts/inline-fonts.mjs",
     "build:single": "node scripts/build-single.mjs",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "npm run build && wrangler deploy",
+    "deploy:preview": "npm run build && wrangler dev"
   },
   "devDependencies": {
     "vite": "^8.1.4"
