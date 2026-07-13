@@ -1,0 +1,536 @@
+/** ===== CSS Variables & Themes ===== */
+
+:root {
+  /* Shared */
+  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  --font-mono: Inconsolata, Consolas, Menlo, Monaco, "Andale Mono WT", "Andale Mono", "Lucida Console", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
+  --radius: 8px;
+  --transition: 0.3s ease;
+  --content-max-width: 1000px;
+
+  /* Light theme (default) */
+  --bg-body: #f5f7fa;
+  --bg-card: rgba(255,255,255,0.72);
+  --bg-code: rgba(0,0,0,0.04);
+  --bg-table: rgba(255,255,255,0.55);
+  --text-main: #1a1a1a;
+  --text-secondary: #4a4a4a;
+  --text-heading: #111;
+  --border-color: rgba(0,0,0,0.08);
+  --accent: #2563eb;
+  --accent-light: #3b82f6;
+  --link-color: #2563eb;
+  --blockquote-border: #2563eb;
+  --glass-blur: saturate(140%) blur(24px) brightness(1.02);
+  --shadow: 0 4px 24px rgba(0,0,0,0.06);
+  --nav-bg: rgba(255,255,255,0.75);
+  --switch-bg: #e2e8f0;
+  --switch-knob: #fff;
+  --mark-bg: #bfdbfe;
+  --mark-text: #1e3a8a;
+}
+
+[data-theme="dark"] {
+  --bg-body: #0f1115;
+  --bg-card: rgba(21,23,26,0.72);
+  --bg-code: rgba(255,255,255,0.05);
+  --bg-table: rgba(21,23,26,0.55);
+  --text-main: #e2e2e2;
+  --text-secondary: #a0a0a0;
+  --text-heading: #fff;
+  --border-color: rgba(255,255,255,0.08);
+  --accent: #4a89dc;
+  --accent-light: #6aa3f0;
+  --link-color: #4a89dc;
+  --blockquote-border: #4a89dc;
+  --glass-blur: saturate(120%) blur(20px) brightness(0.85);
+  --shadow: 0 4px 24px rgba(0,0,0,0.35);
+  --nav-bg: rgba(15,17,21,0.75);
+  --switch-bg: #334155;
+  --switch-knob: #94a3b8;
+  --mark-bg: #4a89dc;
+  --mark-text: #fff;
+}
+
+/** ===== Base ===== */
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0; padding: 0;
+  font-family: var(--font-body);
+  font-size: 16.5px;
+  line-height: 1.7;
+  color: var(--text-main);
+  background: var(--bg-body);
+  -webkit-font-smoothing: antialiased;
+  transition: background-color var(--transition), color var(--transition);
+}
+
+body {
+  min-height: 100vh;
+}
+
+/* Dark radial gradient overlay (only in dark mode) */
+[data-theme="dark"] body {
+  background:
+    linear-gradient(to top, rgba(0,0,0,0) 0%, var(--bg-body) 100%),
+    radial-gradient(circle at 50% 100%, #1a252f 0%, #0a0a0a 100%);
+  background-attachment: fixed;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-body);
+  font-weight: 700;
+  color: var(--text-heading);
+  margin: 1.2em 0 0.6em;
+  line-height: 1.35;
+  transition: color var(--transition);
+}
+
+h1 { font-size: 2.2rem; letter-spacing: -1px; }
+h2 { font-size: 1.7rem; letter-spacing: -0.5px; }
+h3 { font-size: 1.4rem; }
+h4 { font-size: 1.15rem; }
+h5 { font-size: 1rem; }
+h6 { font-size: 0.95rem; color: var(--text-secondary); }
+
+p, ul, ol, dd, hr, address, pre, table, blockquote {
+  margin-top: 0;
+  margin-bottom: 1.2rem;
+}
+
+a {
+  color: var(--link-color);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+a:hover { color: var(--accent-light); text-decoration: underline; }
+
+strong, b {
+  font-weight: 700;
+}
+
+th, dt {
+  font-weight: 700;
+  color: var(--text-heading);
+}
+
+hr {
+  height: 2px;
+  border: 0;
+  background: var(--accent);
+  opacity: 0.6;
+  margin: 2rem 0;
+}
+
+blockquote {
+  margin: 1.5rem 0;
+  border-left: 5px solid var(--blockquote-border);
+  padding: 1rem 1.2rem;
+  background: var(--bg-card);
+  backdrop-filter: var(--glass-blur);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  color: var(--text-main);
+}
+
+blockquote p:last-child { margin-bottom: 0; }
+blockquote p:first-child { margin-top: 0; }
+
+code, kbd, tt, var {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  background: var(--bg-code);
+}
+
+pre {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  padding: 1rem;
+  border-radius: var(--radius);
+  background: var(--bg-card);
+  backdrop-filter: var(--glass-blur);
+  overflow-x: auto;
+  line-height: 1.6;
+  border: 1px solid var(--border-color);
+}
+pre code {
+  background: none;
+  padding: 0;
+  font-size: inherit;
+}
+
+mark {
+  background: var(--mark-bg);
+  color: var(--mark-text);
+  padding: 0.15em 0.35em;
+  border-radius: 4px;
+}
+
+ul, ol {
+  padding-left: 1.8em;
+}
+ul { list-style: square; }
+ol { list-style: decimal; }
+li { margin: 0.25em 0; }
+
+img {
+  max-width: 100%;
+  border-radius: var(--radius);
+  height: auto;
+}
+
+table {
+  max-width: 100%;
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  background: var(--bg-table);
+  backdrop-filter: var(--glass-blur);
+  border-radius: var(--radius);
+  overflow: hidden;
+  font-size: 0.95em;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1.5rem;
+}
+
+th, td {
+  padding: 8px 12px;
+  text-align: center;
+  vertical-align: middle;
+  border: 1px solid var(--border-color);
+}
+
+th {
+  font-weight: 700;
+  color: var(--accent);
+  border-bottom-width: 2px;
+}
+
+tr:nth-child(2n) {
+  background: rgba(127,127,127,0.03);
+}
+
+/* Selection */
+::selection {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-thumb {
+  background: rgba(127,127,127,0.25);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:active { background: rgba(127,127,127,0.45); }
+::-webkit-scrollbar-track { background: transparent; }
+
+/** ===== Layout ===== */
+.nav-bar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 1.5rem;
+  background: var(--nav-bg);
+  backdrop-filter: var(--glass-blur);
+  border-bottom: 1px solid var(--border-color);
+  transition: background var(--transition), border-color var(--transition);
+}
+
+.nav-bar .brand {
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--text-heading);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-bar .brand:hover { text-decoration: none; }
+
+.nav-links {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.nav-links a {
+  padding: 0.35rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  background: var(--bg-card);
+  color: var(--accent);
+  backdrop-filter: var(--glass-blur);
+}
+
+/* Theme toggle button */
+.theme-toggle {
+  width: 44px;
+  height: 24px;
+  border-radius: 12px;
+  background: var(--switch-bg);
+  border: none;
+  cursor: pointer;
+  position: relative;
+  padding: 0;
+  outline: none;
+  transition: background var(--transition);
+}
+
+.theme-toggle::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--switch-knob);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  transition: transform var(--transition), background var(--transition);
+}
+
+[data-theme="dark"] .theme-toggle::after {
+  transform: translateX(20px);
+}
+
+.theme-toggle .icon-sun,
+.theme-toggle .icon-moon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 12px;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.theme-toggle .icon-sun { left: 6px; opacity: 1; }
+.theme-toggle .icon-moon { right: 6px; opacity: 0.5; }
+
+[data-theme="dark"] .theme-toggle .icon-sun { opacity: 0.5; }
+[data-theme="dark"] .theme-toggle .icon-moon { opacity: 1; }
+
+.container {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: 2rem 1.5rem 5rem;
+}
+
+.page-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.page-header h1 {
+  margin: 0 0 0.3rem;
+  font-size: 2.4rem;
+}
+
+.page-header .subtitle {
+  color: var(--text-secondary);
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+/** ===== Cards / Panels ===== */
+.card {
+  background: var(--bg-card);
+  backdrop-filter: var(--glass-blur);
+  border-radius: var(--radius);
+  border: 1px solid var(--border-color);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: var(--shadow);
+  transition: background var(--transition), border-color var(--transition);
+}
+
+/** ===== Home / Landing ===== */
+.landing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 80px);
+  text-align: center;
+  padding: 2rem;
+}
+
+.landing h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(90deg, var(--accent), var(--accent-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.landing .lead {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  max-width: 480px;
+  margin-bottom: 2.5rem;
+}
+
+.game-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  max-width: 720px;
+  width: 100%;
+}
+
+.game-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2.5rem 2rem;
+  background: var(--bg-card);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+  box-shadow: var(--shadow);
+}
+
+.game-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+  border-color: var(--accent);
+  text-decoration: none;
+}
+
+[data-theme="dark"] .game-card:hover {
+  box-shadow: 0 12px 40px rgba(0,0,0,0.45);
+}
+
+.game-card .icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.game-card h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.5rem;
+}
+
+.game-card p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+/** ===== KaTeX Overrides ===== */
+/* Ensure tall formulas (fractions, matrices, aligned environments) are not clipped.
+   Must use overflow: visible on the display wrapper — overflow-y: hidden (or auto via CSS spec cascade)
+   will cut off parts of fractions and other tall constructs. */
+.katex-display {
+  margin: 2.5em 0;
+  overflow: visible;
+  padding: 0.6em 0;
+}
+
+.katex-display:first-child {
+  margin-top: 0;
+}
+
+.katex-display:last-child {
+  margin-bottom: 0;
+}
+
+.katex {
+  font-size: 1.1em;
+  line-height: 1.5;
+}
+
+.katex-display .katex {
+  font-size: 1.15em;
+}
+
+/* Ensure KaTeX colors work in both themes */
+.katex .textcolor,
+.katex .colorbox {
+  transition: none;
+}
+
+/** ===== Markdown Content Area ===== */
+.markdown-body {
+  font-size: 1rem;
+  line-height: 1.85;
+  word-break: break-word;
+  line-break: loose;
+  overflow-wrap: break-word;
+}
+
+.markdown-body h1 {
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--border-color);
+  margin-top: 1.8rem;
+}
+
+.markdown-body h2 {
+  margin-top: 1.6rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.markdown-body h3 { margin-top: 1.4rem; }
+.markdown-body h4 { margin-top: 1.2rem; }
+
+.markdown-body p {
+  margin-bottom: 1rem;
+}
+
+.markdown-body blockquote {
+  margin: 1.5rem 0;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  margin-bottom: 1rem;
+}
+
+.markdown-body table {
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.markdown-body td code,
+.markdown-body p code {
+  word-break: break-word;
+}
+
+/* Improve spacing between consecutive paragraphs in blockquotes */
+.markdown-body blockquote p {
+  margin-bottom: 0.5rem;
+}
+.markdown-body blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .nav-bar { padding: 0.6rem 1rem; }
+  .nav-links a { padding: 0.3rem 0.5rem; font-size: 0.85rem; }
+  .container { padding: 1rem 1rem 3rem; }
+  h1 { font-size: 1.8rem; }
+  h2 { font-size: 1.4rem; }
+  .landing h1 { font-size: 2rem; }
+  .game-cards { grid-template-columns: 1fr; }
+}
