@@ -6,7 +6,7 @@
   --font-mono: Inconsolata, Consolas, Menlo, Monaco, "Andale Mono WT", "Andale Mono", "Lucida Console", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
   --radius: 8px;
   --transition: 0.3s ease;
-  --content-max-width: 1000px;
+  --content-max-width: 90%;
 
   /* Light theme (default) */
   --bg-body: #f5f7fa;
@@ -55,27 +55,41 @@
 /** ===== Base ===== */
 * { box-sizing: border-box; }
 
-html, body {
+html {
   margin: 0; padding: 0;
   font-family: var(--font-body);
   font-size: 16.5px;
   line-height: 1.7;
   color: var(--text-main);
-  background: var(--bg-body);
   -webkit-font-smoothing: antialiased;
-  transition: background-color var(--transition), color var(--transition);
+  transition: color var(--transition);
 }
 
 body {
+  margin: 0; padding: 0;
   min-height: 100vh;
+  background: var(--bg-body);
+  transition: background-color var(--transition), color var(--transition);
 }
 
-/* Dark radial gradient overlay (only in dark mode) */
-[data-theme="dark"] body {
+/* Dark radial gradient overlay via a fixed pseudo-element.
+   Crucially, position: fixed decouples the background from the
+   element's scroll/overflow — it always fills the viewport
+   regardless of zoom or content overflow. */
+html[data-theme="dark"] body {
+  background: transparent;
+  position: relative;
+  z-index: 0;
+}
+
+html[data-theme="dark"] body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
   background:
     linear-gradient(to top, rgba(0,0,0,0) 0%, var(--bg-body) 100%),
     radial-gradient(circle at 50% 100%, #1a252f 0%, #0a0a0a 100%);
-  background-attachment: fixed;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -181,6 +195,18 @@ img {
   height: auto;
 }
 
+/* Scrollable wrapper for wide tables (prevents layout breakage during zoom) */
+.table-wrap {
+  max-width: 100%;
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+.table-wrap > table {
+  margin-bottom: 0;
+}
+
 table {
   max-width: 100%;
   width: 100%;
@@ -193,7 +219,6 @@ table {
   font-size: 0.95em;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 1.5rem;
 }
 
 th, td {
@@ -438,29 +463,46 @@ tr:nth-child(2n) {
 
 /** ===== KaTeX Overrides ===== */
 /* Ensure tall formulas (fractions, matrices, aligned environments) are not clipped.
-   Must use overflow: visible on the display wrapper — overflow-y: hidden (or auto via CSS spec cascade)
-   will cut off parts of fractions and other tall constructs. */
-.katex-display {
+   We use a dedicated .katex-wrap container that only scrolls horizontally,
+   leaving the vertical direction unconstrained so nothing gets cut off. */
+
+.katex-wrap {
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: visible;
+  /* Re-feed visible → the CSS spec coerces visible next to auto/scroll back to auto,
+     so we need a padding-bottom trick to prevent vertical clipping. */
+  padding-bottom: 1px;
   margin: 2.5em 0;
+}
+
+.katex-wrap:first-child {
+  margin-top: 0;
+}
+
+.katex-wrap:last-child {
+  margin-bottom: 0;
+}
+
+/* The inner .katex-display already has its own margins — remove the
+   extra margin from the wrap so spacing stays consistent. */
+.katex-wrap > .katex-display {
+  margin: 0;
+}
+
+/* No overflow on inner elements — all horizontal scrolling is on .katex-wrap */
+.katex-display > .katex {
+  font-size: 1.15em;
+}
+
+.katex-display {
   overflow: visible;
   padding: 0.6em 0;
 }
 
-.katex-display:first-child {
-  margin-top: 0;
-}
-
-.katex-display:last-child {
-  margin-bottom: 0;
-}
-
 .katex {
   font-size: 1.1em;
-  line-height: 1.5;
-}
-
-.katex-display .katex {
-  font-size: 1.15em;
+  line-height: normal;
 }
 
 /* Ensure KaTeX colors work in both themes */

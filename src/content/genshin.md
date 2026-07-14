@@ -81,7 +81,7 @@ $$
 
 **反应<font color="#4ade80">月绽放</font>**：反应倍率为：<font color="#4ade80"> 绽放 </font> $2$ | <font color="#4ade80"> 超绽放 烈绽放 </font> $3$，精通系数为：$16$
 
->特定情况下，<font color="#4ade80">**草**</font>触及<font color="#0066cc">**水**</font>时，会生成<font color="#4ade80">草原核</font>，并为队伍提供**「草露」**，可被特定角色消耗
+>特定情况下，<font color="#4ade80">**草**</font>触及<font color="#0066cc">**水**</font>时，会生成<font color="#4ade80">草原核</font>，并为队伍提供「**草露**」，可被特定角色消耗
 ><font color="#4ade80">草原核</font>伤害**不算**<font color="#4ade80">**月绽放**</font>**伤害**，<font color="#4ade80">月绽放</font>伤害**只包括直伤**
 ><font color="#4ade80">草原核</font>伤害仍为<font color="#4ade80">**绽放/烈绽放/超绽放伤害**</font>
 ><font color="#4ade80">草原核</font>无**最终伤害**计算
@@ -130,14 +130,14 @@ $$
 
 **反应星超导**：反应倍率：$0$ 且不消耗额外提升次数
 
-> 特定情况下，<font color="#7950f2">**雷**</font>触及<font color="#22d3ee">**冰**</font>时，会创造「星辉棱晶」，并将其附近的区域短暂变换为奇妙的**「极星辉域」**
+> 特定情况下，<font color="#7950f2">**雷**</font>触及<font color="#22d3ee">**冰**</font>时，会创造「星辉棱晶」，并将其附近的区域短暂变换为奇妙的「**极星辉域**」
 > 极星辉域会每 **4s** 记录领域内的<font color="#7950f2">雷</font>/<font color="#22d3ee">冰</font>元素**附着次数之和**，记录上限为12次，持续 **4s**，重复触发时刷新持续时间
 > 当记录次数为 $0/1/12$ 次时，会获得 $20\%/29\%/40\%$ 的<font color="#7950f2">雷</font>/<font color="#22d3ee">冰</font>元素增伤以及 $1/1.45/2.0$ 星超导系数
 > 当记录次数大于1时，每多一次增加 $1\%$ <font color="#7950f2">雷</font>/<font color="#22d3ee">冰</font>元素增伤以及 $0.05$ 星超导系数
 > 每次结束记录时会根据记录数增加<font color="#7950f2">雷</font>/<font color="#22d3ee">冰</font>元素伤害以及星超导反应系数，持续 4s
 > 极星辉域内敌人物抗降低 $40\%$，持续 12s
 
-**反应星扩散**：<font color="#34d399">风属性</font>反应倍率：$0.75$，<font color="#22d3ee">冰属性</font>反应倍率：$2/3$
+**反应星扩散**：<font color="#34d399">风属性</font>反应倍率：$0.75$，<font color="#22d3ee">冰属性</font>反应倍率：$2$ | $3$
 
 > 特定情况下，<font color="#34d399">**风**</font>触及<font color="#22d3ee">**冰**</font>时，会创造「星辉风团·冰」，**风团**将在 **4.5s** 后引爆，造成一次视为星扩散伤害的<font color="#22d3ee">冰元素</font>伤害，期间每次触发星扩散反应将造成一次星扩散反应<font color="#34d399">风元素</font>伤害
 > <font color="#34d399">风属性</font>星扩散反应伤害的**最终伤害**中首位角色必定为<font color="#34d399">风属性</font>角色

@@ -30,14 +30,14 @@ export function renderMarkdown(text) {
   text = text.replace(/\$\$([\s\S]+?)\$\$/g, (_m, math) => {
     const key = placeholder();
     try {
-      blocks.push({
-        key,
-        html: katex.renderToString(math.trim(), {
-          displayMode: true,
-          throwOnError: false,
-          strict: false,
-        }),
+      const rendered = katex.renderToString(math.trim(), {
+        displayMode: true,
+        throwOnError: false,
+        strict: false,
       });
+      // Wrap in a scrollable container so wide formulas can scroll
+      // horizontally WITHOUT clipping tall constructs (fractions, matrices).
+      blocks.push({ key, html: `<div class="katex-wrap">${rendered}</div>` });
     } catch (e) {
       blocks.push({ key, html: `<pre class="katex-error">${escapeHtml(math)}</pre>` });
     }
@@ -65,11 +65,19 @@ export function renderMarkdown(text) {
   // Convert ==highlight== syntax to <mark> before marked runs
   text = text.replace(/==([^=]+?)==/g, '<mark>$1</mark>');
 
+  // Custom renderer — wrap tables in a scrollable container
+  // so wide tables don't break the layout during zoom.
+  const renderer = new marked.Renderer();
+  renderer.table = (tableToken) => {
+    return `<div class="table-wrap">${tableToken}</div>\n`;
+  };
+
   // Render markdown
   const html = marked.parse(text, {
     gfm: true,
     breaks: true,
     headerIds: true,
+    renderer,
   });
 
   // Restore math blocks
