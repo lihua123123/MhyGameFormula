@@ -65,20 +65,17 @@ export function renderMarkdown(text) {
   // Convert ==highlight== syntax to <mark> before marked runs
   text = text.replace(/==([^=]+?)==/g, '<mark>$1</mark>');
 
-  // Custom renderer — wrap tables in a scrollable container
-  // so wide tables don't break the layout during zoom.
-  const renderer = new marked.Renderer();
-  renderer.table = (tableToken) => {
-    return `<div class="table-wrap">${tableToken}</div>\n`;
-  };
-
   // Render markdown
-  const html = marked.parse(text, {
+  let html = marked.parse(text, {
     gfm: true,
     breaks: true,
     headerIds: true,
-    renderer,
   });
+
+  // Wrap tables in a scrollable container
+  // so wide tables don't break the layout during zoom.
+  html = html.replace(/<table>/g, '<div class="table-wrap"><table>');
+  html = html.replace(/<\/table>/g, '</table></div>');
 
   // Restore math blocks
   let result = html;
