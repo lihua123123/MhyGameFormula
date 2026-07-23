@@ -17,7 +17,7 @@
     ```
 
     ```cmd
-    npm run build-single && REM 生成html文件到/dist-single文件夹下
+    npm run build:single && REM 生成html文件到/dist-single文件夹下
     
     npm run dev && REM 在线打开
     ```
