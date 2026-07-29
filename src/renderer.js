@@ -65,6 +65,13 @@ export function renderMarkdown(text) {
   // Convert ==highlight== syntax to <mark> before marked runs
   text = text.replace(/==([^=]+?)==/g, '<mark>$1</mark>');
 
+  // Workaround: marked fails to parse **...%** as bold when immediately
+  // followed by a CJK character (e.g. **X%**的). Convert to <strong> first.
+  text = text.replace(
+    /\*\*([^*]+?%[^*]*?)\*\*(?=[\u4e00-\u9fff])/g,
+    '<strong>$1</strong>',
+  );
+
   // Render markdown
   let html = marked.parse(text, {
     gfm: true,
