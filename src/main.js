@@ -1,12 +1,8 @@
 import './style.css';
-import { initTheme, createThemeToggle } from './theme.js';
 import { renderMarkdown } from './renderer.js';
 import genshinContent from './content/genshin.md?raw';
 import srContent from './content/sr.md?raw';
 import zzzContent from './content/zzz.md?raw';
-
-initTheme();
-createThemeToggle(document.getElementById('theme-toggle-root'));
 
 // Render content for both games
 document.getElementById('content-genshin').innerHTML = renderMarkdown(genshinContent);

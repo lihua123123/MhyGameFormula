@@ -8,29 +8,7 @@
   --transition: 0.3s ease;
   --content-max-width: 90%;
 
-  /* Light theme (default) */
-  --bg-body: #f5f7fa;
-  --bg-card: rgba(255,255,255,0.72);
-  --bg-code: rgba(0,0,0,0.04);
-  --bg-table: rgba(255,255,255,0.55);
-  --text-main: #1a1a1a;
-  --text-secondary: #4a4a4a;
-  --text-heading: #111;
-  --border-color: rgba(0,0,0,0.08);
-  --accent: #2563eb;
-  --accent-light: #3b82f6;
-  --link-color: #2563eb;
-  --blockquote-border: #2563eb;
-  --glass-blur: saturate(140%) blur(24px) brightness(1.02);
-  --shadow: 0 4px 24px rgba(0,0,0,0.06);
-  --nav-bg: rgba(255,255,255,0.75);
-  --switch-bg: #e2e8f0;
-  --switch-knob: #fff;
-  --mark-bg: #bfdbfe;
-  --mark-text: #1e3a8a;
-}
-
-[data-theme="dark"] {
+  /* Dark theme (only theme) */
   --bg-body: #0f1115;
   --bg-card: rgba(21,23,26,0.72);
   --bg-code: rgba(255,255,255,0.05);
@@ -46,8 +24,6 @@
   --glass-blur: saturate(120%) blur(20px) brightness(0.85);
   --shadow: 0 4px 24px rgba(0,0,0,0.35);
   --nav-bg: rgba(15,17,21,0.75);
-  --switch-bg: #334155;
-  --switch-knob: #94a3b8;
   --mark-bg: #4a89dc;
   --mark-text: #fff;
 }
@@ -76,13 +52,13 @@ body {
    Crucially, position: fixed decouples the background from the
    element's scroll/overflow — it always fills the viewport
    regardless of zoom or content overflow. */
-html[data-theme="dark"] body {
+body {
   background: transparent;
   position: relative;
   z-index: 0;
 }
 
-html[data-theme="dark"] body::before {
+body::before {
   content: '';
   position: fixed;
   inset: 0;
@@ -302,53 +278,6 @@ tr:nth-child(2n) {
   backdrop-filter: var(--glass-blur);
 }
 
-/* Theme toggle button */
-.theme-toggle {
-  width: 44px;
-  height: 24px;
-  border-radius: 12px;
-  background: var(--switch-bg);
-  border: none;
-  cursor: pointer;
-  position: relative;
-  padding: 0;
-  outline: none;
-  transition: background var(--transition);
-}
-
-.theme-toggle::after {
-  content: '';
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: var(--switch-knob);
-  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-  transition: transform var(--transition), background var(--transition);
-}
-
-[data-theme="dark"] .theme-toggle::after {
-  transform: translateX(20px);
-}
-
-.theme-toggle .icon-sun,
-.theme-toggle .icon-moon {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 12px;
-  line-height: 1;
-  pointer-events: none;
-}
-
-.theme-toggle .icon-sun { left: 6px; opacity: 1; }
-.theme-toggle .icon-moon { right: 6px; opacity: 0.5; }
-
-[data-theme="dark"] .theme-toggle .icon-sun { opacity: 0.5; }
-[data-theme="dark"] .theme-toggle .icon-moon { opacity: 1; }
-
 .container {
   max-width: var(--content-max-width);
   margin: 0 auto;
@@ -436,13 +365,9 @@ tr:nth-child(2n) {
 
 .game-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.45);
   border-color: var(--accent);
   text-decoration: none;
-}
-
-[data-theme="dark"] .game-card:hover {
-  box-shadow: 0 12px 40px rgba(0,0,0,0.45);
 }
 
 .game-card .icon {
@@ -503,6 +428,17 @@ tr:nth-child(2n) {
 .katex {
   font-size: 1.1em;
   line-height: normal;
+}
+
+/* Inline math ($...$) — visual chip to distinguish from plain text */
+.katex-inline {
+  background: var(--bg-code);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 0.1em 0.4em;
+  margin: 0 0.1em;
+  line-height: normal;
+  white-space: nowrap;
 }
 
 /* Ensure KaTeX colors work in both themes */

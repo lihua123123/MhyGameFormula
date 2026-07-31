@@ -72,25 +72,25 @@ $$
 \end{aligned}
 $$
 
-**反应<font color="#7950f2">月感电</font>**：反应倍率：$3$，精通系数：$6$
+**反应<span class="lunar-charged-electro">月感电</span>**：反应倍率：$3$，精通系数：$6$
 
-> 特定情况下，<font color="#7950f2">**雷**</font>触及<font color="#0066cc">**水**</font>时，会生成一片不可移动的**雷暴云**，持续 **6s**
-> 雷暴云：每 **2s** 攻击一次附近所有**同时具有**<font color="#7950f2">**雷**</font>和<font color="#0066cc">**水**</font>的目标，并消耗 $0.4U$ 的<font color="#7950f2">雷</font>和<font color="#0066cc">水</font>（**破盾效率极低**）
-> 触发<font color="#7950f2">月感电</font>时，若附近已有雷暴云，则会**刷新持续时间**
-> <font color="#7950f2">月感电</font>**无视防御**，**可以暴击**（取决于每个角色自己的暴击率和暴击伤害）
+> 特定情况下，<span class="electro">**雷**</span>触及<span class="hydro">**水**</span>时，会生成一片不可移动的**雷暴云**，持续 **6s**
+> 雷暴云：每 **2s** 攻击一次附近所有**同时具有**<span class="electro">**雷**</span>和<span class="hydro">**水**</span>的目标，并消耗 $0.4U$ 的<span class="electro">雷</span>和<span class="hydro">水</span>（**破盾效率极低**）
+> 触发<span class="lunar-charged-electro">月感电</span>时，若附近已有雷暴云，则会**刷新持续时间**
+> <span class="lunar-charged-electro">月感电</span>**无视防御**，**可以暴击**（取决于每个角色自己的暴击率和暴击伤害）
 
-**反应<font color="#4ade80">月绽放</font>**：反应倍率为：<font color="#4ade80"> 绽放 </font> $2$ | <font color="#4ade80"> 超绽放 烈绽放 </font> $3$，精通系数为：$16$
+**反应<span class="lunar-bloom-dendro">月绽放</span>**：反应倍率为：<span class="dendro"> 绽放 </span> $2$ | <span class="dendro"> 超绽放 烈绽放 </span> $3$，精通系数为：$16$
 
->特定情况下，<font color="#4ade80">**草**</font>触及<font color="#0066cc">**水**</font>时，会生成<font color="#4ade80">草原核</font>，并为队伍提供「**草露**」，可被特定角色消耗
-><font color="#4ade80">草原核</font>伤害**不算**<font color="#4ade80">**月绽放**</font>**伤害**，<font color="#4ade80">月绽放</font>伤害**只包括直伤**
-><font color="#4ade80">草原核</font>伤害仍为<font color="#4ade80">**绽放/烈绽放/超绽放伤害**</font>
-><font color="#4ade80">草原核</font>无**最终伤害**计算
+>特定情况下，<span class="dendro">**草**</span>触及<span class="hydro">**水**</span>时，会生成<span class="dendro">草原核</span>，并为队伍提供「**草露**」，可被特定角色消耗
+><span class="dendro">草原核</span>伤害**不算**<span class="lunar-bloom-dendro">**月绽放**</span>**伤害**，<span class="lunar-bloom-dendro">月绽放</span>伤害**只包括直伤**
+><span class="dendro">草原核</span>伤害仍为<span class="dendro">**绽放/烈绽放/超绽放伤害**</span>
+><span class="dendro">草原核</span>无**最终伤害**计算
 
-**反应**<font color="#eab308">**月结晶**</font>：反应倍率：$1.6$，精通系数：$6$
+**反应**<span class="lunar-crystallize-geo">**月结晶**</span>：反应倍率：$1.6$，精通系数：$6$
 
->特定情况下，<font color="#eab308">**岩**</font>触及<font color="#0066cc">**水**</font>时，会生成三枚**月笼**
->每触发 $3$ 次<font color="#eab308">月结晶</font>反应，三枚月笼各造成一次<font color="#eab308">**月结晶**</font>**伤害**
-><font color="#eab308">月结晶</font>**无视防御**，**可以暴击**（取决于每个角色自己的暴击率和暴击伤害）
+>特定情况下，<span class="geo">**岩**</span>触及<span class="hydro">**水**</span>时，会生成三枚**月笼**
+>每触发 $3$ 次<span class="lunar-crystallize-geo">月结晶</span>反应，三枚月笼各造成一次<span class="lunar-crystallize-geo">**月结晶**</span>**伤害**
+><span class="lunar-crystallize-geo">月结晶</span>**无视防御**，**可以暴击**（取决于每个角色自己的暴击率和暴击伤害）
 
 ### 直伤月伤害
 
@@ -104,11 +104,11 @@ $$
 \end{aligned}
 $$
 
-> **直伤**<font color="#7950f2">**月感电**</font>：直伤系数为：$3$
+> **直伤**<span class="lunar-charged-electro">**月感电**</span>：直伤系数为：$3$
 >
-> **直伤**<font color="#4ade80">**月绽放**</font>：直伤系数为：$1$
+> **直伤**<span class="lunar-bloom-dendro">**月绽放**</span>：直伤系数为：$1$
 >
-> **直伤**<font color="#eab308">**月结晶**</font>：直伤系数为：$1.6$
+> **直伤**<span class="lunar-crystallize-geo">**月结晶**</span>：直伤系数为：$1.6$
 
 ---
 
@@ -131,24 +131,24 @@ $$
 
 **反应星超导**：反应倍率：$0$ 且不消耗额外提升次数
 
-> 特定情况下，<font color="#7950f2">**雷**</font>触及<font color="#22d3ee">**冰**</font>时，会创造「星辉棱晶」，并将其附近的区域短暂变换为奇妙的「**极星辉域**」
-> 极星辉域会每 **4s** 记录领域内的<font color="#7950f2">雷</font>/<font color="#22d3ee">冰</font>元素**附着次数之和**，记录上限为12次，持续 **4s**，重复触发时刷新持续时间
+> 特定情况下，<span class="electro">**雷**</span>触及<span class="cryo">**冰**</span>时，会创造「星辉棱晶」，并将其附近的区域短暂变换为奇妙的「**极星辉域**」
+> 极星辉域会每 **4s** 记录领域内的<span class="electro">雷</span>/<span class="cryo">冰</span>元素**附着次数之和**，记录上限为12次，持续 **4s**，重复触发时刷新持续时间
 
-> 当记录次数为 $0/1/12$ 次时，会获得 $20\%/29\%/40\%$ 的<font color="#7950f2">雷</font>/<font color="#22d3ee">冰</font>元素增伤以及 $1/1.45/2.0$ 星超导系数
-> 当记录次数大于1时，每多一次增加 $1\%$ <font color="#7950f2">雷</font>/<font color="#22d3ee">冰</font>元素增伤以及 $0.05$ 星超导系数
-> 每次结束记录时会根据记录数增加<font color="#7950f2">雷</font>/<font color="#22d3ee">冰</font>元素伤害以及星超导反应系数，持续 4s
+> 当记录次数为 $0/1/12$ 次时，会获得 $20\%/29\%/40\%$ 的<span class="electro">雷</span>/<span class="cryo">冰</span>元素增伤以及 $1/1.45/2.0$ 星超导系数
+> 当记录次数大于1时，每多一次增加 $1\%$ <span class="electro">雷</span>/<span class="cryo">冰</span>元素增伤以及 $0.05$ 星超导系数
+> 每次结束记录时会根据记录数增加<span class="electro">雷</span>/<span class="cryo">冰</span>元素伤害以及星超导反应系数，持续 4s
 
 > 极星辉域内敌人物抗降低 $40\%$，持续 12s
 
-**反应星扩散**：<font color="#34d399">风属性</font>反应倍率：$0.75$，<font color="#22d3ee">冰属性</font>反应倍率：$2$ | $3$
+**反应星扩散**：<span class="anemo">风属性</span>反应倍率：$0.75$，<span class="cryo">冰属性</span>反应倍率：$2$ | $3$
 
-> 特定情况下，<font color="#34d399">**风**</font>触及<font color="#22d3ee">**冰**</font>时，会创造「星辉风团·冰」，**风团**将在 **4.5s** 后引爆，造成一次视为星扩散伤害的<font color="#22d3ee">冰元素</font>伤害，期间每次触发星扩散反应将造成一次星扩散反应<font color="#34d399">风元素</font>伤害
-> <font color="#34d399">风属性</font>星扩散反应伤害的**最终伤害**中首位角色必定为<font color="#34d399">风属性</font>角色
-> <font color="#22d3ee">冰属性</font>星扩散反应伤害的**最终伤害**中首位角色必定为<font color="#22d3ee">冰属性</font>角色，次位必定为<font color="#34d399">风属性</font>角色
+> 特定情况下，<span class="anemo">**风**</span>触及<span class="cryo">**冰**</span>时，会创造「星辉风团·冰」，**风团**将在 **4.5s** 后引爆，造成一次<span class="stellar-swirl-cryo">冰元素星扩散反应伤害</span>，期间每次触发星扩散反应将造成一次<span class="stellar-swirl-anemo">风元素星扩散反应伤害</span>
+> <span class="stellar-swirl-anemo">风属性星扩散反应伤害</span>的**最终伤害**中首位角色必定为<span class="anemo">风属性</span>角色
+> <span class="stellar-swirl-cryo">冰属性星扩散反应伤害</span>的**最终伤害**中首位角色必定为<span class="cryo">冰属性</span>角色，次位必定为<span class="anemo">风属性</span>角色
 
 > 每次触发星扩散反应时，**风涡系数**会增加 $1$，最多增加至 $6$
-> 风团会在风涡系数至少为 $3$ 时提升大小，并增加伤害范围与<font color="#22d3ee">冰属性</font>反应倍率，当风涡系数为 $6$ 时将提前引爆风团
-> 风团引爆时会为周围的敌人附着 $1U$ <font color="#22d3ee">冰</font>并清空风涡系数
+> 风团会在风涡系数至少为 $3$ 时提升大小，并增加伤害范围与<span class="cryo">冰属性</span>反应倍率，当风涡系数为 $6$ 时将提前引爆风团
+> 风团引爆时会为周围的敌人附着 $1U$ <span class="cryo">冰</span>并清空风涡系数
 
 > 星扩散**无视防御**，**可以暴击**（取决于每个角色自己的暴击率和暴击伤害）
 > 「星辉风团·冰」爆炸后，还会短暂地赋予附近角色一次高跳能力
@@ -165,7 +165,7 @@ $$
 \end{aligned}
 $$
 
-> 星超导系数会根据极星辉域记录的<font color="#7950f2">雷</font>/<font color="#22d3ee">冰</font>元素附着次数之和决定
+> 星超导系数会根据极星辉域记录的<span class="electro">雷</span>/<span class="cryo">冰</span>元素附着次数之和决定
 >
 > 星扩散系数为：$1$
 
@@ -173,12 +173,12 @@ $$
 
 ## 激化反应
 
-当<font color="#7950f2">**雷元素**</font>触及<font color="#4ade80">**草元素**</font>时，会按照 $1:1:1$ 的比例互相消耗并生成**原激化元素**
-原激化元素可以发生<font color="#4ade80">绽放</font>和<font color="#ee0000">燃烧</font>反应，在这些反应中的表现**和**<font color="#4ade80">**草元素**</font>**相同**
+当<span class="electro">**雷元素**</span>触及<span class="dendro">**草元素**</span>时，会按照 $1:1:1$ 的比例互相消耗并生成**原激化元素**
+原激化元素可以发生<span class="dendro">绽放</span>和<span class="pyro">燃烧</span>反应，在这些反应中的表现**和**<span class="dendro">**草元素**</span>**相同**
 原激化元素的持续时间：$(6+5\times元素量)$ 秒
 
-<font color="#7950f2">雷</font>和<font color="#4ade80">草</font>不共存，但原激化和<font color="#7950f2">雷</font>、原激化和<font color="#4ade80">草</font>都可以共存
-当**附着**<font color="#7950f2">**雷**</font>/<font color="#4ade80">**草**</font>**元素的攻击**命中具有原激化的目标时，将分别引发<font color="#7950f2">**超激化**</font>/<font color="#4ade80">**蔓激化**</font>反应，不消耗任何元素，但为本次伤害贡献**激化值**（完整公式见【常规伤害】章节）
+<span class="electro">雷</span>和<span class="dendro">草</span>不共存，但原激化和<span class="electro">雷</span>、原激化和<span class="dendro">草</span>都可以共存
+当**附着**<span class="electro">**雷**</span>/<span class="dendro">**草**</span>**元素的攻击**命中具有原激化的目标时，将分别引发<span class="electro">**超激化**</span>/<span class="dendro">**蔓激化**</span>反应，不消耗任何元素，但为本次伤害贡献**激化值**（完整公式见【常规伤害】章节）
 $$
 \begin{aligned}
 	超激化值 &= 1446.85 \times 1.15 \times (1 + \frac{5 \times 元素精通}{元素精通 + 1200} + 超激化提高\%) \\
@@ -195,7 +195,7 @@ $$
 
 ## 剧变反应
 
-剧变反应包括：<font color="#ee0000">超载</font>、<font color="#22d3ee">超导</font>、<font color="#7950f2">感电</font>、<font color="#ee0000">燃烧</font>、碎冰、<font color="#34d399">扩散</font>、<font color="#4ade80">绽放</font>、<font color="#4ade80">超绽放</font>、<font color="#4ade80">烈绽放</font>
+剧变反应包括：<span class="pyro">超载</span>、<span class="cryo">超导</span>、<span class="electro">感电</span>、<span class="pyro">燃烧</span>、碎冰、<span class="anemo">扩散</span>、<span class="dendro">绽放</span>、<span class="dendro">超绽放</span>、<span class="dendro">烈绽放</span>
 剧变反应造成的伤害**不受益于常规增伤/易伤/减伤**，且**无视防御力**、**不能暴击**
 $$
 \begin{aligned}
@@ -208,14 +208,14 @@ $$
 **额外提升**：梦见月瑞希一命、菈乌玛元素爆发（不受益于**精通增伤**、**反应增伤**）
 
 反应倍率：
-<font color="#ee0000">燃烧</font> $0.25$ （每 0.25s 一次）
-<font color="#34d399">扩散</font> $0.6$ | <font color="#22d3ee">超导</font> $1.5$ | <font color="#7950f2">感电</font> $2$
-<font color="#ee0000">超载</font> $2.75$ | 碎冰 $3$
-<font color="#4ade80">绽放</font> $2$ | <font color="#4ade80"> 超绽放 烈绽放 </font> $3$
+<span class="pyro">燃烧</span> $0.25$ （每 0.25s 一次）
+<span class="anemo">扩散</span> $0.6$ | <span class="cryo">超导</span> $1.5$ | <span class="electro">感电</span> $2$
+<span class="pyro">超载</span> $2.75$ | 碎冰 $3$
+<span class="dendro">绽放</span> $2$ | <span class="dendro"> 超绽放 烈绽放 </span> $3$
 
 触发剧变反应没有冷却，但剧变反应的**伤害有冷却**：
-每 **0.5s** 最多 $1$ 次：<font color="#ee0000">超载</font>
-每 **0.5s** 最多 $2$ 次：<font color="#22d3ee">超导</font>、碎冰、<font color="#34d399">扩散</font>、<font color="#4ade80">绽放</font>、<font color="#4ade80">超绽放</font>、<font color="#4ade80">烈绽放</font>
+每 **0.5s** 最多 $1$ 次：<span class="pyro">超载</span>
+每 **0.5s** 最多 $2$ 次：<span class="cryo">超导</span>、碎冰、<span class="anemo">扩散</span>、<span class="dendro">绽放</span>、<span class="dendro">超绽放</span>、<span class="dendro">烈绽放</span>
 
 当敌人触发上述反应时，原本的 $1446.85$ 的数值有变化：
 90级 $1202.81$ | 95级 $1411.74$ | 100级 $1674.81$
@@ -248,7 +248,7 @@ $$
 
 ## 结晶反应
 
-触发<font color="#eab308">**结晶**</font>反应时，会掉落对应<font color="#ee0000">火</font>/<font color="#0066cc">水</font>/<font color="#7950f2">雷</font>/<font color="#22d3ee">冰</font>元素的晶片，拾取后可获得护盾
+触发<span class="geo">**结晶**</span>反应时，会掉落对应<span class="pyro">火</span>/<span class="hydro">水</span>/<span class="electro">雷</span>/<span class="cryo">冰</span>元素的晶片，拾取后可获得护盾
 结晶护盾对其自身属性的伤害有 $250\%$ 的吸收效率
 $$
 结晶盾量 = 1851.06 \times ( 1 + \frac{4.44 \times 元素精通}{元素精通 + 1400})

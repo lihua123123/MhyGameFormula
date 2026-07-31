@@ -138,25 +138,25 @@ $$
 > 伤害等级区：$[1, 2]$
 > 异常增伤区：$[-1, 2]$
 
-> **异常增伤**包含了子类==紊乱增伤==、==异放增伤==和==乱流增伤==
+> **异常增伤**包含了子类`紊乱增伤`、`异放增伤`和`乱流增伤`
 > 触发后 $3s$ 内，无法再次触发同类异常效果
 
 | 异常类型 | 倍率 | 次数 | 异常状态说明 | 总倍率 |
 | :-: | :-: | :-: | :-: | :-: |
-| <font color="#f0d12b">强击</font> | 713% | 1 | <font color="#f0d12b">畏缩</font>：使敌人受到的失衡值提升 $7.5\%$，持续 $10s$ | 713% |
-| <font color="#98eff0">碎冰</font> | 500% | 1 | <font color="#98eff0">霜寒</font>：使敌人受到的暴击伤害提升 $10\%$，持续 $10s$<br /><font color="#98eff0">冻结</font>敌人，最多 $3.5s$，解除<font color="#98eff0">冻结</font>后触发<font color="#98eff0">碎冰</font> | 500% |
-| <font color="#ff5521">灼烧</font> | 50% | 20 | 使敌人每 $0.5s$ 受到一次<font color="#ff5521">火属性</font>异常伤害，持续 $10s$ | 1000% |
-| <font color="#2eb6ff">感电</font> | 125% | 10 | 使敌人受到攻击时触发一次<font color="#2eb6ff">电属性</font>异常伤害<br />触发间隔为 $1s$，持续 $10s$ | 1250% |
-| <font color="#fe437e">侵蚀</font> | 62.5% | 20 | 使敌人受到攻击时触发一次<font color="#fe437e">以太属性</font>异常伤害<br />触发间隔为 $0.5s$，持续 $10s$ | 1250% |
-| <font color="#a6c5fd">风化</font> | 1250% | 1 | 使敌人受到的<font color="#a6c5fd">**风属性**</font>**直接攻击伤害**提升 $10\%$，持续 $30s$<br /><font color="#a6c5fd">侵染</font>：使敌人受到的首次接触的**非风属性的直接攻击伤害**提升 $10\%$，重新<font color="#a6c5fd">风化</font>后重置 | 1250% |
+| <span class="physical">强击</span> | 713% | 1 | <span class="physical">畏缩</span>：使敌人受到的失衡值提升 $7.5\%$，持续 $10s$ | 713% |
+| <span class="ice">碎冰</span> | 500% | 1 | <span class="ice">霜寒</span>：使敌人受到的暴击伤害提升 $10\%$，持续 $10s$<br /><span class="ice">冻结</span>敌人，最多 $3.5s$，解除<span class="ice">冻结</span>后触发<span class="ice">碎冰</span> | 500% |
+| <span class="fire">灼烧</span> | 50% | 20 | 使敌人每 $0.5s$ 受到一次<span class="fire">火属性</span>异常伤害，持续 $10s$ | 1000% |
+| <span class="electric">感电</span> | 125% | 10 | 使敌人受到攻击时触发一次<span class="electric">电属性</span>异常伤害<br />触发间隔为 $1s$，持续 $10s$ | 1250% |
+| <span class="ether">侵蚀</span> | 62.5% | 20 | 使敌人受到攻击时触发一次<span class="ether">以太属性</span>异常伤害<br />触发间隔为 $0.5s$，持续 $10s$ | 1250% |
+| <span class="wind">风化</span> | 1250% | 1 | 使敌人受到的<span class="wind">**风属性**</span>**直接攻击伤害**提升 $10\%$，持续 $30s$<br /><span class="wind">侵染</span>：使敌人受到的首次接触的**非风属性的直接攻击伤害**提升 $10\%$，重新<span class="wind">风化</span>后重置 | 1250% |
 
 ---
 
 ## 异化
 
-> <font color="#ffa9dd">流明属性</font>代理人的部分攻击可以直接为敌人施加<font color="#ffa9dd">**流明**</font>**积蓄点**，若敌人身上有<font color="#ffa9dd">流明</font>积蓄点，在即将进入异常状态时，该异常状态会被<font color="#ffa9dd">异化</font>，[<font color="#ffa9dd">异化</font>]后该异常状态的**异常效果强度**会根据<font color="#ffa9dd">流明</font>积蓄点提供者的<font color="#ffa9dd">**异化**</font>**系数**进行强化，此次异常状态所能造成的总伤害会随之提升
+> <span class="lumiflux">流明属性</span>代理人的部分攻击可以直接为敌人施加<span class="lumiflux">**流明**</span>**积蓄点**，若敌人身上有<span class="lumiflux">流明</span>积蓄点，在即将进入异常状态时，该异常状态会被<span class="lumiflux">异化</span>，[<span class="lumiflux">异化</span>]后该异常状态的**异常效果强度**会根据<span class="lumiflux">流明</span>积蓄点提供者的<span class="lumiflux">**异化**</span>**系数**进行强化，此次异常状态所能造成的总伤害会随之提升
 >
-> <font color="#ffa9dd">异化</font>伤害始终被认为是<font color="#ffa9dd">流明</font>积蓄点施加者触发
+> <span class="lumiflux">异化</span>伤害始终被认为是<span class="lumiflux">流明</span>积蓄点施加者触发
 
 $$
 \begin{align*}
@@ -173,11 +173,11 @@ $$
 \end{align*}
 $$
 
-> <font color="#ffa9dd">流明属性</font>代理人会根据队伍中下一位代理人的基础属性进行**属性流变**，属性流变后，代理人造成<font color="#ffa9dd">流明属性</font>伤害时，会视为造成属性流变目标属性的属性伤害，但不会积累对应的属性异常积蓄值
+> <span class="lumiflux">流明属性</span>代理人会根据队伍中下一位代理人的基础属性进行**属性流变**，属性流变后，代理人造成<span class="lumiflux">流明属性</span>伤害时，会视为造成属性流变目标属性的属性伤害，但不会积累对应的属性异常积蓄值
 >
-> <font color="#ffa9dd">流明属性</font>为特殊的变种属性时会保留其原属性的性质，该效果并无实战意义
+> <span class="lumiflux">流明属性</span>为特殊的变种属性时会保留其原属性的性质，该效果并无实战意义
 
-> <font color="#ffa9dd">异化</font>结算的异常效果将会继承原异常属性的效果，属于对应属性伤害
+> <span class="lumiflux">异化</span>结算的异常效果将会继承原异常属性的效果，属于对应属性伤害
 
 ---
 
@@ -207,47 +207,52 @@ $$
 \end{align*}
 $$
 
-<font color="#a6c5fd">风属性</font>积蓄条仅前两次比标准积蓄条短
+<span class="wind">风属性</span>积蓄条仅前两次比标准积蓄条短
 
 | 已触发次数 | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9+ |
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
 | 普通敌人 | 600 | 612 | 624 | 636 | 648 | 660 | 673 | 686 | 699 | 712 |
 | 精英敌人 | 2250 | 2295 | 2340 | 2386 | 2433 | 2481 | 2530 | 2580 | 2631 | 2683 |
 | 首领敌人 | 3000 | 3060 | 3121 | 3183 | 3246 | 3310 | 3376 | 3443 | 3511 | 3581 |
-| <font color="#f0d12b">普通敌人(物理)</font> | <font color="#f0d12b">720</font>  | <font color="#f0d12b">734</font>  | <font color="#f0d12b">748</font>  | <font color="#f0d12b">762</font>  | <font color="#f0d12b">777</font>  | <font color="#f0d12b">792</font>  | <font color="#f0d12b">807</font>  | <font color="#f0d12b">823</font>  | <font color="#f0d12b">839</font>  | <font color="#f0d12b">855</font>  |
-| <font color="#f0d12b">精英敌人(物理)</font> | <font color="#f0d12b">2700</font> | <font color="#f0d12b">2754</font> | <font color="#f0d12b">2809</font> | <font color="#f0d12b">2865</font> | <font color="#f0d12b">2922</font> | <font color="#f0d12b">2980</font> | <font color="#f0d12b">3039</font> | <font color="#f0d12b">3099</font> | <font color="#f0d12b">3160</font> | <font color="#f0d12b">3223</font> |
-| <font color="#f0d12b">首领敌人(物理)</font> | <font color="#f0d12b">3600</font> | <font color="#f0d12b">3672</font> | <font color="#f0d12b">3745</font> | <font color="#f0d12b">3819</font> | <font color="#f0d12b">3895</font> | <font color="#f0d12b">3972</font> | <font color="#f0d12b">4051</font> | <font color="#f0d12b">4132</font> | <font color="#f0d12b">4214</font> | <font color="#f0d12b">4298</font> |
-| <font color="#a6c5fd">普通敌人(风)</font> | <font color="#a6c5fd">300</font>  | <font color="#a6c5fd">500</font>  | <font color="#a6c5fd">624</font>  | <font color="#a6c5fd">636</font>  | <font color="#a6c5fd">648</font>  | <font color="#a6c5fd">660</font>  | <font color="#a6c5fd">673</font>  | <font color="#a6c5fd">686</font>  | <font color="#a6c5fd">699</font>  | <font color="#a6c5fd">712</font>  |
-| <font color="#a6c5fd">精英敌人(风)</font> | <font color="#a6c5fd">1150</font> | <font color="#a6c5fd">2000</font> | <font color="#a6c5fd">2340</font> | <font color="#a6c5fd">2386</font> | <font color="#a6c5fd">2433</font> | <font color="#a6c5fd">2481</font> | <font color="#a6c5fd">2530</font> | <font color="#a6c5fd">2580</font> | <font color="#a6c5fd">2631</font> | <font color="#a6c5fd">2683</font> |
-| <font color="#a6c5fd">首领敌人(风)</font> | <font color="#a6c5fd">1500</font> | <font color="#a6c5fd">2700</font> | <font color="#a6c5fd">3121</font> | <font color="#a6c5fd">3183</font> | <font color="#a6c5fd">3246</font> | <font color="#a6c5fd">3310</font> | <font color="#a6c5fd">3376</font> | <font color="#a6c5fd">3443</font> | <font color="#a6c5fd">3511</font> | <font color="#a6c5fd">3581</font> |
+| <span class="physical">普通敌人(物理)</span> | <span class="physical">720</span>  | <span class="physical">734</span>  | <span class="physical">748</span>  | <span class="physical">762</span>  | <span class="physical">777</span>  | <span class="physical">792</span>  | <span class="physical">807</span>  | <span class="physical">823</span>  | <span class="physical">839</span>  | <span class="physical">855</span>  |
+| <span class="physical">精英敌人(物理)</span> | <span class="physical">2700</span> | <span class="physical">2754</span> | <span class="physical">2809</span> | <span class="physical">2865</span> | <span class="physical">2922</span> | <span class="physical">2980</span> | <span class="physical">3039</span> | <span class="physical">3099</span> | <span class="physical">3160</span> | <span class="physical">3223</span> |
+| <span class="physical">首领敌人(物理)</span> | <span class="physical">3600</span> | <span class="physical">3672</span> | <span class="physical">3745</span> | <span class="physical">3819</span> | <span class="physical">3895</span> | <span class="physical">3972</span> | <span class="physical">4051</span> | <span class="physical">4132</span> | <span class="physical">4214</span> | <span class="physical">4298</span> |
+| <span class="wind">普通敌人(风)</span> | <span class="wind">300</span>  | <span class="wind">500</span>  | <span class="wind">624</span>  | <span class="wind">636</span>  | <span class="wind">648</span>  | <span class="wind">660</span>  | <span class="wind">673</span>  | <span class="wind">686</span>  | <span class="wind">699</span>  | <span class="wind">712</span>  |
+| <span class="wind">精英敌人(风)</span> | <span class="wind">1150</span> | <span class="wind">2000</span> | <span class="wind">2340</span> | <span class="wind">2386</span> | <span class="wind">2433</span> | <span class="wind">2481</span> | <span class="wind">2530</span> | <span class="wind">2580</span> | <span class="wind">2631</span> | <span class="wind">2683</span> |
+| <span class="wind">首领敌人(风)</span> | <span class="wind">1500</span> | <span class="wind">2700</span> | <span class="wind">3121</span> | <span class="wind">3183</span> | <span class="wind">3246</span> | <span class="wind">3310</span> | <span class="wind">3376</span> | <span class="wind">3443</span> | <span class="wind">3511</span> | <span class="wind">3581</span> |
 
 > 实际上部分敌人的异常条比标准异常条要长，因此实际的异常积蓄值需要乘算**异常条系数**
 
 ---
 
-## 异常伤害提取
+## 异常提现伤害
 
 异常伤害大多具有出伤后置的特点，而且随着环境的不断变化常规异常的出伤模式被多种条件所束缚，因此我们需要在能及时提现的新的异常伤害类型
 
-> 无论是**异放**还是**耀变**均只替换了常规异常伤害公式中的**倍率**
+下列是以代理人 `简`提供初始异常状态<span class="physical">强击</span>（不考虑加权代理人），对比不同的**异常提现伤害类型**对各乘区的利用
+
+> <span class="physical">黄色字体</span>代表该**异常提现伤害类型**可以享受 `简`提供的面板
+> 其他颜色字体代表该**异常提现伤害类型**可以享受`触发者`实时的面板
+
+| 伤害乘区/伤害类型 |               <span class="disorder">紊乱</span>               |              <span class="abloom">异放</span>               |              <span class="wind">乱流</span>               |              <span class="lumiflux">耀变</span>               |
+| :---------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
+|      暴击区       | <span class="physical">✗</span><span class="disorder">✓</span>  | <span class="physical">✓</span><span class="abloom">✗</span> | <span class="physical">✓</span><span class="wind">✗</span> | <span class="physical">✗</span><span class="lumiflux">✓</span> |
+|      抗性区       | <span class="physical">✗</span><span class="disorder">✓</span>  | <span class="physical">✓</span> + <span class="abloom">✓</span> | <span class="physical">✓</span> + <span class="wind">✓</span> | <span class="physical">✗</span><span class="lumiflux">✓</span> |
+|      增伤区       | <span class="physical">✓</span><span class="disorder">✗</span>  | <span class="physical">✓</span><span class="abloom">✗</span> | <span class="physical">✓</span><span class="wind">✗</span> | <span class="physical">✓</span><span class="lumiflux">✗</span> |
+|    异常增伤区     | <span class="physical">✗</span><span class="disorder">紊乱增伤</span> | <span class="physical">✓</span> + <span class="abloom">✓</span> | <span class="physical">✓</span> + <span class="wind">✓</span> | <span class="physical">✗</span><span class="lumiflux">全异常增伤</span> |
+|  穿透率与穿透值   | <span class="physical">✓</span><span class="disorder">✗</span>  | <span class="physical">✓</span><span class="abloom">✗</span> | <span class="physical">✓</span><span class="wind">✗</span> | <span class="physical">✓</span><span class="lumiflux">✗</span> |
+|  减防与无视防御   | <span class="physical">✗</span><span class="disorder">✓</span>  | <span class="physical">✓</span> + <span class="abloom">✓</span> | <span class="physical">✓</span> + <span class="wind">✓</span> | <span class="physical">✗</span><span class="lumiflux">✓</span> |
+|      易伤区       | <span class="physical">✗</span><span class="disorder">✓</span>  | <span class="physical">✓</span> + <span class="abloom">✓</span> | <span class="physical">✓</span> + <span class="wind">✓</span> | <span class="physical">✗</span><span class="lumiflux">✓</span> |
+|    失衡易伤区     | <span class="physical">✗</span><span class="disorder">✓</span>  | <span class="physical">✓</span> + <span class="abloom">✓</span> | <span class="physical">✓</span> + <span class="wind">✓</span> | <span class="physical">✗</span><span class="lumiflux">✓</span> |
+
+> 从以上表格可以简单总结为：
 >
-> **异放**是基于原异常伤害类型提取出来的伤害，因此**异放**的伤害类型**仍为原异常伤害的类型**
-> **耀变**是提取原**异常效果强度**，造成新的伤害类型
-
-| 乘区类型\伤害类型  |   紊乱   |         乱流          |         异放          | 耀变 |
-| :----------------: | :------: | :-------------------: | :-------------------: | :--: |
-|       暴击区       |    ×     |           √           |           √           |  ×   |
-|       抗性区       |    √     |           √           |           √           |  √   |
-|     简的增伤区     |    √     |           √           |           √           |  √   |
-|   触发者的增伤区   |    ×     |           √           |           √           |  ×   |
-|   简的异常增伤区   |    ×     |           ×           |           ×           |      |
-| 触发者的异常增伤区 | 紊乱增伤 | 物理异常增伤+乱流增伤 | 物理异常增伤+异放增伤 |      |
-
-> 该表以代理人简触发强击伤害为例，==该部分等待梳理，需要解释的东西比较多==
+> <span class="disorder">紊乱</span>和<span class="lumiflux">耀变</span>伤害的异常效果强度相关乘区只享受异常效果施加者的面板，其余乘区只享受该伤害触发者的面板
+> <span class="abloom">异放</span>和<span class="wind">乱流</span>伤害的异常效果强度相关乘区只享受异常效果施加者的面板，其余乘区享受异常效果施加者与该伤害触发者的面板
 
 ### 异放
 
-异放是一种特殊的结算异常属性影响下的敌人的伤害方式，此类攻击不会影响当前异常状态
+<span class="abloom">异放</span>是一种特殊的结算异常属性影响下的敌人的伤害方式，此类攻击不会影响当前异常状态
 $$
 \begin{align*}
 	异放倍率 & = 异常属性倍率 \times 代理人技能描述比例 \\
@@ -263,20 +268,20 @@ $$
 \end{align*}
 $$
 
-部分代理人的异放结算为固定倍率，直接查询即可，以下列出需要换算的代理人的异放倍率
+部分代理人的<span class="abloom">异放</span>结算为固定倍率，直接查询即可，以下列出需要换算的代理人的异放倍率
 
 | 属性 | 倍率 | 格莉丝 | 柏妮思 | 薇薇安 | 爱芮 | 南宫羽 |
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
-| <font color="#f0d12b">物理</font> | <font color="#f0d12b">713%</font> | <font color="#f0d12b">356.5%</font> | <font color="#f0d12b">285.2%</font> | <font color="#f0d12b">0.53475% / 精通</font> | <font color="#f0d12b">1.9251% / 初始掌控</font> | <font color="#f0d12b">449.19%</font> |
-| <font color="#98eff0">冰</font> | <font color="#98eff0">500%</font> | <font color="#98eff0">350%</font> | <font color="#98eff0">300%</font> | <font color="#98eff0">0.54% / 精通</font> | <font color="#98eff0">1.9% / 初始掌控</font> | <font color="#98eff0">450%</font> |
-| <font color="#ff5521">火</font> | <font color="#ff5521">50%</font> | <font color="#ff5521">350%</font> | <font color="#ff5521">300%</font> | <font color="#ff5521">0.4% / 精通</font> | <font color="#ff5521">1.88% / 初始掌控</font> | <font color="#ff5521">450%</font> |
-| <font color="#2eb6ff">电</font> | <font color="#2eb6ff">125%</font> | <font color="#2eb6ff">350%</font> | <font color="#2eb6ff">300%</font> | <font color="#2eb6ff">0.4% / 精通</font> | <font color="#2eb6ff">1.8875% / 初始掌控</font> | <font color="#2eb6ff">450%</font> |
-| <font color="#fe437e">以太</font> | <font color="#fe437e">62.5%</font> | <font color="#fe437e">350%</font> | <font color="#fe437e">300%</font> | <font color="#fe437e">0.384375% / 精通</font> | <font color="#fe437e">1.8125% / 初始掌控</font> | <font color="#fe437e">450%</font> |
-| <font color="#a6c5fd">风</font> | <font color="#a6c5fd">1250%</font> | <font color="#a6c5fd">350%</font> | <font color="#a6c5fd">300%</font> | <font color="#a6c5fd">0.4% / 精通</font> | <font color="#a6c5fd">1.75% / 初始掌控</font> | <font color="#a6c5fd">450%</font> |
+| <span class="physical">物理</span> | <span class="physical">713%</span> | <span class="physical">356.5%</span> | <span class="physical">285.2%</span> | <span class="physical">0.53475% / 精通</span> | <span class="physical">1.9251% / 初始掌控</span> | <span class="physical">449.19%</span> |
+| <span class="ice">冰</span> | <span class="ice">500%</span> | <span class="ice">350%</span> | <span class="ice">300%</span> | <span class="ice">0.54% / 精通</span> | <span class="ice">1.9% / 初始掌控</span> | <span class="ice">450%</span> |
+| <span class="fire">火</span> | <span class="fire">50%</span> | <span class="fire">350%</span> | <span class="fire">300%</span> | <span class="fire">0.4% / 精通</span> | <span class="fire">1.88% / 初始掌控</span> | <span class="fire">450%</span> |
+| <span class="electric">电</span> | <span class="electric">125%</span> | <span class="electric">350%</span> | <span class="electric">300%</span> | <span class="electric">0.4% / 精通</span> | <span class="electric">1.8875% / 初始掌控</span> | <span class="electric">450%</span> |
+| <span class="ether">以太</span> | <span class="ether">62.5%</span> | <span class="ether">350%</span> | <span class="ether">300%</span> | <span class="ether">0.384375% / 精通</span> | <span class="ether">1.8125% / 初始掌控</span> | <span class="ether">450%</span> |
+| <span class="wind">风</span> | <span class="wind">1250%</span> | <span class="wind">350%</span> | <span class="wind">300%</span> | <span class="wind">0.4% / 精通</span> | <span class="wind">1.75% / 初始掌控</span> | <span class="wind">450%</span> |
 
 ### 耀变
 
-<font color="#ffa9dd">耀变</font>伤害是<font color="#ffa9dd">流明属性</font>代理人触发<font color="#ffa9dd">异化</font>反应后会记录本次异化反应的**异常效果强度**，对敌人造成固定倍率的已储存的所有**虚曜**的属性异常伤害
+<span class="lumiflux">耀变</span>伤害是<span class="lumiflux">流明属性</span>代理人触发<span class="lumiflux">异化</span>反应后会记录本次异化反应的**异常效果强度**，对敌人造成固定倍率的已储存的所有**虚曜**的属性异常伤害
 $$
 \begin{align*}
 	耀变倍率 & = 固定倍率\% \times (1 + 流明属性积蓄点施加者的异常精通 \times 0.2\%) \\
@@ -339,23 +344,23 @@ $$
 
 |                   属性                    |                 紊乱总倍率                 |                     柳                      |                    南宫羽                    |
 | :---------------------------------------: | :----------------------------------------: | :-----------------------------------------: | :------------------------------------------: |
-| <font color="#f0d12b">物理</font> | <font color="#f0d12b">525%</font>  | <font color="#f0d12b">78.75%</font> | <font color="#f0d12b">131.25%</font> |
-|  <font color="#98eff0">冰</font>  | <font color="#98eff0">525%</font>  | <font color="#98eff0">78.75%</font> | <font color="#98eff0">131.25%</font> |
-| <font color="#98eff0">烈霜</font> | <font color="#98eff0">2100%</font> |  <font color="#98eff0">315%</font>  |  <font color="#98eff0">525%</font>   |
-|  <font color="#ff5521">火</font>  | <font color="#ff5521">1450%</font> | <font color="#ff5521">217.5%</font> | <font color="#ff5521">362.5%</font>  |
-|  <font color="#2eb6ff">电</font>  | <font color="#2eb6ff">1700%</font> |  <font color="#2eb6ff">255%</font>  |  <font color="#2eb6ff">425%</font>   |
-| <font color="#fe437e">以太</font> | <font color="#fe437e">1700%</font> |  <font color="#fe437e">255%</font>  |  <font color="#fe437e">425%</font>   |
-|  <font color="#a6c5fd">风</font>  |                     -                      |  <font color="#a6c5fd">15%</font>   |   <font color="#a6c5fd">25%</font>   |
+| <span class="physical">物理</span> | <span class="physical">525%</span>  | <span class="physical">78.75%</span> | <span class="physical">131.25%</span> |
+|  <span class="ice">冰</span>  | <span class="ice">525%</span>  | <span class="ice">78.75%</span> | <span class="ice">131.25%</span> |
+| <span class="frost">烈霜</span> | <span class="ice">2100%</span> |  <span class="ice">315%</span>  |  <span class="ice">525%</span>   |
+|  <span class="fire">火</span>  | <span class="fire">1450%</span> | <span class="fire">217.5%</span> | <span class="fire">362.5%</span>  |
+|  <span class="electric">电</span>  | <span class="electric">1700%</span> |  <span class="electric">255%</span>  |  <span class="electric">425%</span>   |
+| <span class="ether">以太</span> | <span class="ether">1700%</span> |  <span class="ether">255%</span>  |  <span class="ether">425%</span>   |
+|  <span class="wind">风</span>  |                     -                      |  <span class="wind">15%</span>   |   <span class="wind">25%</span>   |
 
 > 上述倍率为完美结算后的倍率
-> 柳的核心被动会使上述极性紊乱倍率固定增加 $37.5\%$ 且天赋中 $3200\% × 异常精通$ 视为**额外提升**部分
+> `柳`的核心被动会使上述极性紊乱倍率固定增加 $37.5\%$ 且天赋中 $3200\% × 异常精通$ 视为**额外提升**部分
 
 ---
 
 ## 乱流
 
->对已经陷入==属性异常状态==的敌人，再次施加其他类型的属性异常效果时，若其中一种异常效果为<font color="#a6c5fd">风化</font>，将不触发==紊乱==效果，而改为触发**乱流**效果：触发时，对<font color="#a6c5fd">风化</font>外的另一种属性异常状态进行结算，造成对应属性的范围异常伤害
->乱流效果始终被认为是<font color="#a6c5fd">风化</font>状态施加者触发
+>对已经陷入==属性异常状态==的敌人，再次施加其他类型的属性异常效果时，若其中一种异常效果为<span class="wind">风化</span>，将不触发==紊乱==效果，而改为触发**乱流**效果：触发时，对<span class="wind">风化</span>外的另一种属性异常状态进行结算，造成对应属性的范围异常伤害
+>乱流效果始终被认为是<span class="wind">风化</span>状态施加者触发
 >触发乱流后的 $3s$ 内，无法再次触发乱流效果
 
 $$
@@ -391,12 +396,12 @@ $$
 
 | 异常类型 | 基础总倍率 | 乱流总倍率 |
 | :-: | :-: | :-: |
-| <font color="#f0d12b">强击</font> | <font color="#f0d12b">713%</font> | <font color="#f0d12b">1588%</font> |
-| <font color="#98eff0">碎冰</font> | <font color="#98eff0">500%</font> | <font color="#98eff0">1875%</font> |
-| <font color="#98eff0">碎冰·烈霜</font> | <font color="#98eff0">500%</font> | <font color="#98eff0">2000%</font> |
-| <font color="#ff5521">灼烧</font> | <font color="#ff5521">1000%</font> | <font color="#ff5521">1900%</font> |
-| <font color="#2eb6ff">感电</font> | <font color="#2eb6ff">1250%</font> | <font color="#2eb6ff">1900%</font> |
-| <font color="#fe437e">侵蚀</font> | <font color="#fe437e">1250%</font> | <font color="#fe437e">1900%</font> |
+| <span class="physical">强击</span> | <span class="physical">713%</span> | <span class="physical">1588%</span> |
+| <span class="ice">碎冰</span> | <span class="ice">500%</span> | <span class="ice">1875%</span> |
+| <span class="ice">碎冰·烈霜</span> | <span class="ice">500%</span> | <span class="ice">2000%</span> |
+| <span class="fire">灼烧</span> | <span class="fire">1000%</span> | <span class="fire">1900%</span> |
+| <span class="electric">感电</span> | <span class="electric">1250%</span> | <span class="electric">1900%</span> |
+| <span class="ether">侵蚀</span> | <span class="ether">1250%</span> | <span class="ether">1900%</span> |
 
 > 乱流是基于原异常伤害类型提取出来的伤害，因此乱流的伤害类型**仍为原异常伤害的类型**
 
@@ -469,8 +474,8 @@ $$
 | 基础喧响值 |  10  | 10 / 次 |    20    |    20    |   215 / 215 / 20    |    35 / 125 / 170    |       15 / 65 / 85        |
 
 > 一般来说攻击或特殊动作的触发者的**伴随获得效率**为 $100\%$，而其他代理人为 $50\%$
->  ==可琳==、==比利==、==悠真==、==伯妮思==、==朱鸢==的伴随获得效率为 $52.5\%$
->  而对于代理人通过特殊效果如时光切片的被动、星见雅的影画[皲裂]、危局强袭战中对未知复合侵蚀体触发腿部[部位破坏]等方式获得额外的喧响值时，则不会被其他代理人伴随获得喧响值
+>  `可琳`、`比利`、`悠真`、`伯妮思`、`朱鸢`的伴随获得效率为 $52.5\%$
+>  而对于代理人通过特殊效果如时光切片的被动、`星见雅`的影画[皲裂]、危局强袭战中对未知复合侵蚀体触发腿部[部位破坏]等方式获得额外的喧响值时，则不会被其他代理人伴随获得喧响值
 
 ---
 
