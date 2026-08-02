@@ -16,13 +16,13 @@
     "stellar-swirl-cryo": "linear-gradient(180deg, #FFFFFF 0%, #7BA5C6 100%)"
   },
   "sr": {
-    "physical": "#b4b3b4",
-    "fire": "#fa4f45",
-    "ice": "#4692cf",
-    "lightning": "#d068df",
-    "wind": "#64ce91",
-    "quantum": "#7b5bc5",
-    "imaginary": "#f0e350"
+    "physical": "linear-gradient(180deg, #6E7379 0%, #FFFFFF 100%)",
+    "fire": "linear-gradient(180deg, #C51C25 0%, #FFFFFF 100%)",
+    "ice": "linear-gradient(180deg, #196EB1 0%, #FFFFFF 100%)",
+    "lightning": "linear-gradient(180deg, #852597 0%, #FFFFFF 100%)",
+    "wind": "linear-gradient(180deg, #209C60 0%, #FFFFFF 100%)",
+    "quantum": "linear-gradient(180deg, #5D359E 0%, #FFFFFF 100%)",
+    "imaginary": "linear-gradient(180deg, #D7A621 0%, #FFFFFF 100%)"
   },
   "zzz": {
     "physical": "linear-gradient(135deg, #FFE066, #FF8C00)",
