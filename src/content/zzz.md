@@ -286,16 +286,16 @@ $$
 
 | 属性 | 倍率 | 格莉丝 | 柏妮思 | 薇薇安 | 爱芮 | 南宫羽 |
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
-| <span class="physical">物理</span> | <span class="physical">713%</span> | <span class="physical">356.5%</span> | <span class="physical">285.2%</span> | <span class="physical">$0.53475\% \times 异常精通$</span> | <span class="physical">$1.9251\% \times 初始掌控$</span> | <span class="physical">449.19%</span> |
-| <span class="ice">冰</span> | <span class="ice">500%</span> | <span class="ice">350%</span> | <span class="ice">300%</span> | <span class="ice">$0.54\% \times 异常精通$</span> | <span class="ice">$1.9\% \times 初始掌控$</span> | <span class="ice">450%</span> |
-| <span class="fire">火</span> | <span class="fire">50%</span> | <span class="fire">350%</span> | <span class="fire">300%</span> | <span class="fire">$0.4\% \times 异常精通$</span> | <span class="fire">$1.88\% \times 初始掌控$</span> | <span class="fire">450%</span> |
-| <span class="electric">电</span> | <span class="electric">125%</span> | <span class="electric">350%</span> | <span class="electric">300%</span> | <span class="electric">$0.4\% \times 异常精通$</span> | <span class="electric">$1.8875\% \times 初始掌控$</span> | <span class="electric">450%</span> |
-| <span class="ether">以太</span> | <span class="ether">62.5%</span> | <span class="ether">350%</span> | <span class="ether">300%</span> | <span class="ether">$0.384375\% \times 异常精通$</span> | <span class="ether">$1.8125\% \times 初始掌控$</span> | <span class="ether">450%</span> |
+| <span class="physical">物理</span> | <span class="physical">713%</span> | <span class="physical">356.5%</span> | <span class="physical">285.2%</span> | <span class="physical">$0.53475\% \times 异常精通$</span> | <span class="physical">$1.7825\% \times 初始掌控$</span> | <span class="physical">449.19%</span> |
+| <span class="ice">冰</span> | <span class="ice">500%</span> | <span class="ice">350%</span> | <span class="ice">300%</span> | <span class="ice">$0.54\% \times 异常精通$</span> | <span class="ice">$1.8\% \times 初始掌控$</span> | <span class="ice">450%</span> |
+| <span class="fire">火</span> | <span class="fire">50%</span> | <span class="fire">350%</span> | <span class="fire">300%</span> | <span class="fire">$0.4\% \times 异常精通$</span> | <span class="fire">$1.785\% \times 初始掌控$</span> | <span class="fire">450%</span> |
+| <span class="electric">电</span> | <span class="electric">125%</span> | <span class="electric">350%</span> | <span class="electric">300%</span> | <span class="electric">$0.4\% \times 异常精通$</span> | <span class="electric">$1.7875\% \times 初始掌控$</span> | <span class="electric">450%</span> |
+| <span class="ether">以太</span> | <span class="ether">62.5%</span> | <span class="ether">350%</span> | <span class="ether">300%</span> | <span class="ether">$0.384375\% \times 异常精通$</span> | <span class="ether">$1.71875\% \times 初始掌控$</span> | <span class="ether">450%</span> |
 | <span class="wind">风</span> | <span class="wind">1250%</span> | <span class="wind">350%</span> | <span class="wind">300%</span> | <span class="wind">$0.4\% \times 异常精通$</span> | <span class="wind">$1.75\% \times 初始掌控$</span> | <span class="wind">450%</span> |
 
 ### 耀变
 
-<span class="lumiflux">耀变</span>伤害是<span class="lumiflux">流明属性</span>代理人触发<span class="lumiflux">异化</span>反应后会记录本次异化反应的**异常效果强度**，对敌人造成固定倍率的已储存的所有**<span class="lumiflux">虚耀</span>**的属性异常伤害
+<span class="lumiflux">耀变</span>伤害是<span class="lumiflux">流明属性</span>代理人触发<span class="lumiflux">异化</span>反应后会记录本次<span class="lumiflux">异化</span>反应的**异常效果强度**，对敌人造成固定倍率的已储存的所有**<span class="lumiflux">虚耀</span>**的属性异常伤害
 $$
 \begin{align*}
 	耀变倍率 & = 固定倍率\% \times (1 + 流明属性积蓄点施加者的异常精通 \times 0.2\%) \\
