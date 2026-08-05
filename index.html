@@ -4,39 +4,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>伤害计算公式</title>
+  <meta name="description" content="原神、崩坏：星穹铁道、绝区零的伤害计算公式汇总与解析，涵盖元素反应、乘区机制、异常效果与击破等。" />
+  <meta name="theme-color" content="#0f1115" />
+  <meta property="og:title" content="伤害计算公式" />
+  <meta property="og:description" content="原神、崩坏：星穹铁道、绝区零的伤害计算公式汇总与解析。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="zh_CN" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%234a89dc'/><stop offset='1' stop-color='%236aa3f0'/></linearGradient></defs><rect width='64' height='64' rx='14' fill='url(%23g)'/><text x='32' y='46' font-family='Georgia,serif' font-size='40' font-weight='bold' fill='%23ffffff' text-anchor='middle'>∑</text></svg>" />
 </head>
 <body>
   <nav class="nav-bar">
     <a class="brand" href="./index.html">伤害公式</a>
-    <div class="nav-links">
-      <a href="#" data-game="genshin" class="active">原神</a>
-      <a href="#" data-game="sr">星穹铁道</a>
-      <a href="#" data-game="zzz">绝区零</a>
-    </div>
+    <div class="nav-links" role="tablist" aria-label="选择游戏"></div>
   </nav>
 
-  <main class="container">
-    <div class="game-view" id="view-genshin">
-      <header class="page-header">
-        <h1>原神 · 伤害计算公式</h1>
-      </header>
-      <div class="markdown-body genshin" id="content-genshin"></div>
-    </div>
-
-    <div class="game-view" id="view-sr" style="display:none">
-      <header class="page-header">
-        <h1>崩坏：星穹铁道 · 伤害计算公式</h1>
-      </header>
-      <div class="markdown-body sr" id="content-sr"></div>
-    </div>
-
-    <div class="game-view" id="view-zzz" style="display:none">
-      <header class="page-header">
-        <h1>绝区零 · 伤害计算公式</h1>
-      </header>
-      <div class="markdown-body zzz" id="content-zzz"></div>
-    </div>
-  </main>
+  <main class="container" id="views"></main>
 
   <script type="module" src="./src/main.js"></script>
 </body>

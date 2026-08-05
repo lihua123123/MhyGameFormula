@@ -135,6 +135,52 @@ $$
 
 ---
 
+## 异常积蓄值
+
+> 角色造成**属性伤害**的同时，会累积对应属性的**异常积蓄值**，并积累本次攻击时的**异常效果强度**
+> 异常积蓄值累积到上限后，敌人将陷入**属性异常状态**，触发后一段时间内，该敌人不会再次陷入同属性的属性异常状态
+> 属性异常状态的效果，和参与累积异常积蓄值的角色及其贡献有关
+
+> 异常效果强度：施加者的属性、等级、攻击力、异常精通、穿透率、穿透值、增伤区、异化区
+
+$$
+\begin{align*}
+    异常积蓄值 & = 基础积蓄值 \times \frac{异常掌控}{100} \\
+    	& \times (1 + 积蓄效率提升\% - 积蓄效率降低\% + 积蓄值提升) \\
+    	& \times (1 - 积蓄抗性提升\% + 积蓄抗性减少\%) \times 距离衰减区 \\
+\\
+    异常积蓄阈值(不包含风) & =
+    \left|
+	\begin{aligned}
+    	a_1 & = 600, && 物理:a_1 = 720 \\
+    	\\
+    	a_n & = \lfloor a_{n-1} \times 1.02 \rfloor, && n \ge 2 \\
+	\end{aligned}
+	\right.
+	\qquad (n为触发次数) \\
+\\
+    普通:精英:首领 & = 600:2250:3000
+\end{align*}
+$$
+
+<span class="wind">风属性</span>积蓄条仅前两次比标准积蓄条短
+
+| 已触发次数 | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9+ |
+| :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
+| 普通敌人 | 600 | 612 | 624 | 636 | 648 | 660 | 673 | 686 | 699 | 712 |
+| 精英敌人 | 2250 | 2295 | 2340 | 2386 | 2433 | 2481 | 2530 | 2580 | 2631 | 2683 |
+| 首领敌人 | 3000 | 3060 | 3121 | 3183 | 3246 | 3310 | 3376 | 3443 | 3511 | 3581 |
+| <span class="physical">普通敌人(物理)</span> | <span class="physical">720</span>  | <span class="physical">734</span>  | <span class="physical">748</span>  | <span class="physical">762</span>  | <span class="physical">777</span>  | <span class="physical">792</span>  | <span class="physical">807</span>  | <span class="physical">823</span>  | <span class="physical">839</span>  | <span class="physical">855</span>  |
+| <span class="physical">精英敌人(物理)</span> | <span class="physical">2700</span> | <span class="physical">2754</span> | <span class="physical">2809</span> | <span class="physical">2865</span> | <span class="physical">2922</span> | <span class="physical">2980</span> | <span class="physical">3039</span> | <span class="physical">3099</span> | <span class="physical">3160</span> | <span class="physical">3223</span> |
+| <span class="physical">首领敌人(物理)</span> | <span class="physical">3600</span> | <span class="physical">3672</span> | <span class="physical">3745</span> | <span class="physical">3819</span> | <span class="physical">3895</span> | <span class="physical">3972</span> | <span class="physical">4051</span> | <span class="physical">4132</span> | <span class="physical">4214</span> | <span class="physical">4298</span> |
+| <span class="wind">普通敌人(风)</span> | <span class="wind">300</span>  | <span class="wind">500</span>  | <span class="wind">624</span>  | <span class="wind">636</span>  | <span class="wind">648</span>  | <span class="wind">660</span>  | <span class="wind">673</span>  | <span class="wind">686</span>  | <span class="wind">699</span>  | <span class="wind">712</span>  |
+| <span class="wind">精英敌人(风)</span> | <span class="wind">1150</span> | <span class="wind">2000</span> | <span class="wind">2340</span> | <span class="wind">2386</span> | <span class="wind">2433</span> | <span class="wind">2481</span> | <span class="wind">2530</span> | <span class="wind">2580</span> | <span class="wind">2631</span> | <span class="wind">2683</span> |
+| <span class="wind">首领敌人(风)</span> | <span class="wind">1500</span> | <span class="wind">2700</span> | <span class="wind">3121</span> | <span class="wind">3183</span> | <span class="wind">3246</span> | <span class="wind">3310</span> | <span class="wind">3376</span> | <span class="wind">3443</span> | <span class="wind">3511</span> | <span class="wind">3581</span> |
+
+> 实际上部分敌人的异常条比标准异常条要长，因此实际的异常积蓄值需要乘算**异常条系数**
+
+---
+
 ## 异常伤害
 
 异常职业的代理人会根据每次**可以贡献异常积蓄的攻击**时获得的增益参与本次异常效果的结算，而非仅通过最后一次完成异常条的攻击的增益提高本次异常效果
@@ -200,57 +246,13 @@ $$
 
 ---
 
-## 异常积蓄值
-
-> 角色造成**属性伤害**的同时，会累积对应属性的**异常积蓄值**
-> 异常积蓄值累积到上限后，敌人将陷入**属性异常状态**，触发后一段时间内，该敌人不会再次陷入同属性的属性异常状态
-> 属性异常状态的效果，和参与累积异常积蓄值的角色及其贡献有关
-
-$$
-\begin{align*}
-    异常积蓄值 & = 基础积蓄值 \times \frac{异常掌控}{100} \\
-    	& \times (1 + 积蓄效率提升\% - 积蓄效率降低\% + 积蓄值提升) \\
-    	& \times (1 - 积蓄抗性提升\% + 积蓄抗性减少\%) \times 距离衰减区 \\
-\\
-    异常积蓄阈值(不包含风) & =
-    \left|
-	\begin{aligned}
-    	a_1 & = 600, && 物理:a_1 = 720 \\
-    	\\
-    	a_n & = \lfloor a_{n-1} \times 1.02 \rfloor, && n \ge 2 \\
-	\end{aligned}
-	\right.
-	\qquad (n为触发次数) \\
-\\
-    普通:精英:首领 & = 600:2250:3000
-\end{align*}
-$$
-
-<span class="wind">风属性</span>积蓄条仅前两次比标准积蓄条短
-
-| 已触发次数 | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9+ |
-| :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
-| 普通敌人 | 600 | 612 | 624 | 636 | 648 | 660 | 673 | 686 | 699 | 712 |
-| 精英敌人 | 2250 | 2295 | 2340 | 2386 | 2433 | 2481 | 2530 | 2580 | 2631 | 2683 |
-| 首领敌人 | 3000 | 3060 | 3121 | 3183 | 3246 | 3310 | 3376 | 3443 | 3511 | 3581 |
-| <span class="physical">普通敌人(物理)</span> | <span class="physical">720</span>  | <span class="physical">734</span>  | <span class="physical">748</span>  | <span class="physical">762</span>  | <span class="physical">777</span>  | <span class="physical">792</span>  | <span class="physical">807</span>  | <span class="physical">823</span>  | <span class="physical">839</span>  | <span class="physical">855</span>  |
-| <span class="physical">精英敌人(物理)</span> | <span class="physical">2700</span> | <span class="physical">2754</span> | <span class="physical">2809</span> | <span class="physical">2865</span> | <span class="physical">2922</span> | <span class="physical">2980</span> | <span class="physical">3039</span> | <span class="physical">3099</span> | <span class="physical">3160</span> | <span class="physical">3223</span> |
-| <span class="physical">首领敌人(物理)</span> | <span class="physical">3600</span> | <span class="physical">3672</span> | <span class="physical">3745</span> | <span class="physical">3819</span> | <span class="physical">3895</span> | <span class="physical">3972</span> | <span class="physical">4051</span> | <span class="physical">4132</span> | <span class="physical">4214</span> | <span class="physical">4298</span> |
-| <span class="wind">普通敌人(风)</span> | <span class="wind">300</span>  | <span class="wind">500</span>  | <span class="wind">624</span>  | <span class="wind">636</span>  | <span class="wind">648</span>  | <span class="wind">660</span>  | <span class="wind">673</span>  | <span class="wind">686</span>  | <span class="wind">699</span>  | <span class="wind">712</span>  |
-| <span class="wind">精英敌人(风)</span> | <span class="wind">1150</span> | <span class="wind">2000</span> | <span class="wind">2340</span> | <span class="wind">2386</span> | <span class="wind">2433</span> | <span class="wind">2481</span> | <span class="wind">2530</span> | <span class="wind">2580</span> | <span class="wind">2631</span> | <span class="wind">2683</span> |
-| <span class="wind">首领敌人(风)</span> | <span class="wind">1500</span> | <span class="wind">2700</span> | <span class="wind">3121</span> | <span class="wind">3183</span> | <span class="wind">3246</span> | <span class="wind">3310</span> | <span class="wind">3376</span> | <span class="wind">3443</span> | <span class="wind">3511</span> | <span class="wind">3581</span> |
-
-> 实际上部分敌人的异常条比标准异常条要长，因此实际的异常积蓄值需要乘算**异常条系数**
-
----
-
 ## 异常提现伤害
 
 异常伤害大多具有出伤后置的特点，而且随着环境的不断变化常规异常的出伤模式被多种条件所束缚，因此我们需要在能及时提现的新的异常伤害类型
 
 > 我将异常伤害的各个乘区分为：施加者乘区、触发者乘区
 >
-> 施加者乘区：也就是`异常效果强度`，详细见[加权规则](## 加权规则)
+> 施加者乘区：也就是`异常效果强度`
 > 触发者乘区：倍率、异常暴击区、减防与无视防御、抗性区、异常增伤区、易伤区等
 
 > 已知4种提现异常伤害的伤害类型（<span class="disorder">紊乱</span>、<span class="abloom">异放</span>、<span class="wind">乱流</span>、<span class="lumiflux">耀变</span>）均遵循以下规则：
@@ -425,8 +427,6 @@ $$
 $$
 
 > 异常伤害积蓄时会记录**每次攻击时的异常效果强度**从而影响本次异常伤害
->
-> 异常效果强度：施加者的属性、等级、攻击力、异常精通、穿透率、穿透值、增伤区、异化区
 
 >紊乱失衡积蓄参与加权的属性有：等级  $(1 + 0.0075 \times lv)$  、冲击力、失衡效率区
 

@@ -18,7 +18,10 @@ if (typeof document !== 'undefined') {
         const sel = `.${game} .${name}`;
         // 渐变值通过 background-clip: text 实现文字渐变色
         if (typeof color === 'string' && color.includes('linear-gradient')) {
-          return `${sel} { background: ${color}; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; }`;
+          // 注意：background-clip: text 无法穿透 inline-block 的 KaTeX `.base`
+          // （否则公式文字会因 color: transparent 而不可见），
+          // 因此把同一渐变也应用到公式文本层 `.katex-html .base`，使公式显示渐变。
+          return `${sel} { background: ${color}; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; }\n${sel} .katex-inline .katex-html .base { background: ${color}; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; }`;
         }
         return `${sel} { color: ${color}; }`;
       })
@@ -26,6 +29,25 @@ if (typeof document !== 'undefined') {
     .join('\n');
   document.head.appendChild(colorStyle);
 }
+
+// headerIds 选项在 marked v5+ 已被移除（本项目使用 v14），不会为标题生成 id，
+// 导致文档内锚点链接（如 zzz.md 的 [加权规则](#加权规则)）无法跳转。
+// 这里用自定义 heading renderer 从标题纯文本生成 id。
+marked.use({
+  renderer: {
+    heading({ tokens, depth }) {
+      const text = this.parser.parseInline(tokens);
+      // 去掉标题里的内联 HTML（strong/mark/code 等）以及 URL 不安全字符
+      const id = text
+        .replace(/<[^>]+>/g, '')
+        .replace(/["'<>\\/]/g, '')
+        .trim();
+      return id
+        ? `<h${depth} id="${id}">${text}</h${depth}>\n`
+        : `<h${depth}>${text}</h${depth}>\n`;
+    },
+  },
+});
 
 /** Escape HTML special chars */
 function escapeHtml(str) {
@@ -105,7 +127,6 @@ export function renderMarkdown(text) {
   let html = marked.parse(text, {
     gfm: true,
     breaks: true,
-    headerIds: true,
   });
 
   // Wrap tables in a scrollable container
@@ -129,6 +150,18 @@ export function renderMarkdown(text) {
     const block = blocks[Number(n)];
     return block ? `${pre}${block.html}` : _m;
   });
+
+  // 章节卡片化：内容只含 h2/h3，按 h2 把整篇切成「章节卡片」，
+  // 由 CSS（.section-card）呈现立体卡片样式，并清理章节边界的 <hr>。
+  // 1) 删掉紧跟下一个 h2 之前的 <hr>（md 里的 --- 分隔线由卡片视觉取代）
+  result = result.replace(/<hr>\s*(?=<h2[\s>])/g, '');
+  // 2) 按 h2 分段，逐段包进 .section-card
+  result = result
+    .split(/(?=<h2[\s>])/)
+    .map(seg => (seg.trim() ? `<div class="section-card">${seg}</div>` : ''))
+    .join('');
+  // 3) 兜底：清掉残留在卡片末尾（如文档结尾）的 <hr>
+  result = result.replace(/<hr>\s*<\/div>/g, '</div>');
 
   return result;
 }
