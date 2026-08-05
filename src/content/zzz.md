@@ -256,7 +256,11 @@ $$
 > 已知4种提现异常伤害的伤害类型（<span class="disorder">紊乱</span>、<span class="abloom">异放</span>、<span class="wind">乱流</span>、<span class="lumiflux">耀变</span>）均遵循以下规则：
 >
 > 1. 触发异常效果后，以上伤害类型中施加者乘区的值不会根据队伍给予的增益的增缺而改变
-> 2. 触发者乘区中
+> 2. 触发者乘区具有很强的标签化特色，具体表现为伤害的颜色，如果与原伤害颜色相同则可以享受对应属性异常增益，反之则只能享受特定对应的增益
+> 3. ==属性==和==属性异常==是两个标签，由第2条可知<span class="disorder">紊乱</span>和<span class="lumiflux">耀变</span>不会继承`简`的<span class="physical">强击</span>暴击效果以及单一异常增伤效果，但由于属性归类在施加者乘区，所以可以享受对应属性的减抗
+>
+> Q：维林娜可以给予 $10\%$ 的<span class="wind">风化</span>增伤，为什么队伍中其他人的<span class="abloom">异放</span>无法享受？
+> A：因为维林娜的<span class="wind">风化</span>增伤只作用于自己（即施加者），而异常增伤区在触发者乘区，因此只有维林娜自己的<span class="abloom">异放</span>可以享受该效果
 
 
 
