@@ -124,7 +124,7 @@ $$
 \begin{align*}
 	锐化暴伤 & = 1 + 120\% + 锐化暴伤提升\% \\
 	\\
-    直伤伤害 & = (防御力 \times 技能倍率 + 额外提升) \\
+    锐化伤害 & = (防御力 \times 技能倍率 + 额外提升) \\
         & \times 锐化暴伤区  \times 防御区 \times 失衡易伤区 \\
         & \times (1 - 增抗\% + 减抗\% + 抗穿\%) \\
         & \times (1 + 增伤\% - 弱伤\%) \\
@@ -248,26 +248,17 @@ $$
 
 异常伤害大多具有出伤后置的特点，而且随着环境的不断变化常规异常的出伤模式被多种条件所束缚，因此我们需要在能及时提现的新的异常伤害类型
 
-下列是以代理人 `简`提供初始异常状态<span class="physical">强击</span>（不考虑加权代理人），对比不同的**异常提现伤害类型**对各乘区的利用
-
-> <span class="physical">黄色字体</span>代表该**异常提现伤害类型**可以享受 `简`提供的面板
-> 其他颜色字体代表该**异常提现伤害类型**可以享受`触发者`实时的面板
-
-| 伤害乘区/伤害类型 |               <span class="disorder">紊乱</span>               |              <span class="abloom">异放</span>               |              <span class="wind">乱流</span>               |              <span class="lumiflux">耀变</span>               |
-| :---------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
-|      暴击区       | <span class="physical">✗</span><span class="disorder">✓</span>  | <span class="physical">✓</span><span class="abloom">✗</span> | <span class="physical">✓</span><span class="wind">✗</span> | <span class="physical">✗</span><span class="lumiflux">✓</span> |
-|      抗性区       | <span class="physical">✗</span><span class="disorder">✓</span>  | <span class="physical">✓</span> + <span class="abloom">✓</span> | <span class="physical">✓</span> + <span class="wind">✓</span> | <span class="physical">✗</span><span class="lumiflux">✓</span> |
-|      增伤区       | <span class="physical">✓</span><span class="disorder">✗</span>  | <span class="physical">✓</span><span class="abloom">✗</span> | <span class="physical">✓</span><span class="wind">✗</span> | <span class="physical">✓</span><span class="lumiflux">✗</span> |
-|    异常增伤区     | <span class="physical">✗</span><span class="disorder">紊乱增伤</span> | <span class="physical">✓</span> + <span class="abloom">✓</span> | <span class="physical">✓</span> + <span class="wind">✓</span> | <span class="physical">✗</span><span class="lumiflux">全异常增伤</span> |
-|  穿透率与穿透值   | <span class="physical">✓</span><span class="disorder">✗</span>  | <span class="physical">✓</span><span class="abloom">✗</span> | <span class="physical">✓</span><span class="wind">✗</span> | <span class="physical">✓</span><span class="lumiflux">✗</span> |
-|  减防与无视防御   | <span class="physical">✗</span><span class="disorder">✓</span>  | <span class="physical">✓</span> + <span class="abloom">✓</span> | <span class="physical">✓</span> + <span class="wind">✓</span> | <span class="physical">✗</span><span class="lumiflux">✓</span> |
-|      易伤区       | <span class="physical">✗</span><span class="disorder">✓</span>  | <span class="physical">✓</span> + <span class="abloom">✓</span> | <span class="physical">✓</span> + <span class="wind">✓</span> | <span class="physical">✗</span><span class="lumiflux">✓</span> |
-|    失衡易伤区     | <span class="physical">✗</span><span class="disorder">✓</span>  | <span class="physical">✓</span> + <span class="abloom">✓</span> | <span class="physical">✓</span> + <span class="wind">✓</span> | <span class="physical">✗</span><span class="lumiflux">✓</span> |
-
-> 从以上表格可以简单总结为：
+> 我将异常伤害的各个乘区分为：施加者乘区、触发者乘区
 >
-> <span class="disorder">紊乱</span>和<span class="lumiflux">耀变</span>伤害的异常效果强度相关乘区只享受异常效果施加者的面板，其余乘区只享受该伤害触发者的面板
-> <span class="abloom">异放</span>和<span class="wind">乱流</span>伤害的异常效果强度相关乘区只享受异常效果施加者的面板，其余乘区享受异常效果施加者与该伤害触发者的面板
+> 施加者乘区：也就是`异常效果强度`，详细见[加权规则](## 加权规则)
+> 触发者乘区：倍率、异常暴击区、减防与无视防御、抗性区、异常增伤区、易伤区等
+
+> 已知4种提现异常伤害的伤害类型（<span class="disorder">紊乱</span>、<span class="abloom">异放</span>、<span class="wind">乱流</span>、<span class="lumiflux">耀变</span>）均遵循以下规则：
+>
+> 1. 触发异常效果后，以上伤害类型中施加者乘区的值不会根据队伍给予的增益的增缺而改变
+> 2. 触发者乘区中
+
+
 
 ### 异放
 
@@ -287,7 +278,7 @@ $$
 \end{align*}
 $$
 
-部分代理人的<span class="abloom">异放</span>结算为固定倍率，直接查询即可，以下列出需要换算的代理人的异放倍率
+部分代理人的<span class="abloom">异放</span>结算为固定倍率，直接查询即可，以下列出需要换算的代理人的<span class="abloom">异放</span>倍率
 
 | 属性 | 倍率 | 格莉丝 | 柏妮思 | 薇薇安 | 爱芮 | 南宫羽 |
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
@@ -300,7 +291,7 @@ $$
 
 ### 耀变
 
-<span class="lumiflux">耀变</span>伤害是<span class="lumiflux">流明属性</span>代理人触发<span class="lumiflux">异化</span>反应后会记录本次异化反应的**异常效果强度**，对敌人造成固定倍率的已储存的所有**虚曜**的属性异常伤害
+<span class="lumiflux">耀变</span>伤害是<span class="lumiflux">流明属性</span>代理人触发<span class="lumiflux">异化</span>反应后会记录本次异化反应的**异常效果强度**，对敌人造成固定倍率的已储存的所有**<span class="lumiflux">虚耀</span>**的属性异常伤害
 $$
 \begin{align*}
 	耀变倍率 & = 固定倍率\% \times (1 + 流明属性积蓄点施加者的异常精通 \times 0.2\%) \\
@@ -320,9 +311,9 @@ $$
 
 ## 紊乱
 
-> 对已经陷入==属性异常状态==的敌人，再次施加其他类型的属性异常效果时，将覆盖原本的状态，并触发**紊乱**效果
-> 触发后 $3s$ 内，无法再次触发紊乱效果
-> 紊乱效果能够基于原本的状态进行结算，额外造成伤害并累积失衡值
+> 对已经陷入`属性异常状态`的敌人，再次施加其他类型的属性异常效果时，将覆盖原本的状态，并触发**<span class="disorder">紊乱</span>**效果
+> 触发后 $3s$ 内，无法再次触发<span class="disorder">紊乱</span>效果
+> <span class="disorder">紊乱</span>效果能够基于原本的状态进行结算，额外造成伤害并累积失衡值
 
 $$
 \begin{align*}
@@ -357,11 +348,11 @@ $$
 \end{align*}
 $$
 
-> 紊乱是提取原**异常效果强度**与**剩余持续时间**，造成新的伤害类型
+> <span class="disorder">紊乱</span>是提取原**异常效果强度**与**剩余持续时间**，造成新的伤害类型
 
 ### 极性紊乱
 
-|                   属性                    |                 紊乱总倍率                 |                     柳                      |                    南宫羽                    |
+|                   属性                    |                 <span class="disorder">紊乱总倍率</span>                 |                     柳                      |                    南宫羽                    |
 | :---------------------------------------: | :----------------------------------------: | :-----------------------------------------: | :------------------------------------------: |
 | <span class="physical">物理</span> | <span class="physical">525%</span>  | <span class="physical">78.75%</span> | <span class="physical">131.25%</span> |
 |  <span class="ice">冰</span>  | <span class="ice">525%</span>  | <span class="ice">78.75%</span> | <span class="ice">131.25%</span> |
@@ -372,15 +363,15 @@ $$
 |  <span class="wind">风</span>  |                     -                      |  <span class="wind">15%</span>   |   <span class="wind">25%</span>   |
 
 > 上述倍率为完美结算后的倍率
-> `柳`的核心被动会使上述极性紊乱倍率固定增加 $37.5\%$ 且天赋中 $3200\% × 异常精通$ 视为**额外提升**部分
+> `柳`的核心被动会使上述<span class="disorder">极性紊乱</span>倍率固定增加 $37.5\%$ 且天赋中 $3200\% × 异常精通$ 视为**额外提升**部分
 
 ---
 
 ## 乱流
 
->对已经陷入==属性异常状态==的敌人，再次施加其他类型的属性异常效果时，若其中一种异常效果为<span class="wind">风化</span>，将不触发==紊乱==效果，而改为触发**乱流**效果：触发时，对<span class="wind">风化</span>外的另一种属性异常状态进行结算，造成对应属性的范围异常伤害
->乱流效果始终被认为是<span class="wind">风化</span>状态施加者触发
->触发乱流后的 $3s$ 内，无法再次触发乱流效果
+>对已经陷入`属性异常状态`的敌人，再次施加其他类型的属性异常效果时，若其中一种异常效果为<span class="wind">风化</span>，将不触发`紊乱`效果，而改为触发**<span class="wind">乱流</span>**效果：触发时，对<span class="wind">风化</span>外的另一种属性异常状态进行结算，造成对应属性的**范围**异常伤害
+><span class="wind">乱流</span>效果始终被认为是<span class="wind">风化</span>状态施加者触发
+>触发<span class="wind">乱流</span>后的 $3s$ 内，无法再次触发<span class="wind">乱流</span>效果
 
 $$
 \begin{align*}
@@ -422,7 +413,7 @@ $$
 | <span class="electric">感电</span> | <span class="electric">1250%</span> | <span class="electric">1900%</span> |
 | <span class="ether">侵蚀</span> | <span class="ether">1250%</span> | <span class="ether">1900%</span> |
 
-> 乱流是基于原异常伤害类型提取出来的伤害，因此乱流的伤害类型**仍为原异常伤害的类型**
+> <span class="wind">乱流</span>是基于原异常伤害类型提取出来的伤害，因此<span class="wind">乱流</span>的伤害类型**仍为原异常伤害的类型**
 
 ---
 
