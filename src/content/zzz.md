@@ -352,8 +352,6 @@ $$
 \end{align*}
 $$
 
-> <span class="disorder">紊乱</span>是提取原**异常效果强度**与**剩余持续时间**，造成新的伤害类型
-
 ### 极性紊乱
 
 |                   属性                    |                 <span class="disorder">紊乱总倍率</span>                 |                     柳                      |                    南宫羽                    |
@@ -416,8 +414,6 @@ $$
 | <span class="fire">灼烧</span> | <span class="fire">1000%</span> | <span class="fire">1900%</span> |
 | <span class="electric">感电</span> | <span class="electric">1250%</span> | <span class="electric">1900%</span> |
 | <span class="ether">侵蚀</span> | <span class="ether">1250%</span> | <span class="ether">1900%</span> |
-
-> <span class="wind">乱流</span>是基于原异常伤害类型提取出来的伤害，因此<span class="wind">乱流</span>的伤害类型**仍为原异常伤害的类型**
 
 ---
 
