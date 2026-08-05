@@ -113,11 +113,22 @@ export function renderMarkdown(text) {
   html = html.replace(/<table>/g, '<div class="table-wrap"><table>');
   html = html.replace(/<\/table>/g, '</table></div>');
 
-  // Restore math blocks
+  // Restore math blocks.
+  // 用「按索引的全局替换」替代原先「逐个 replace」：
+  // 1) 即使 marked 对占位符做了改写/排序，也能保证每个占位符都被还原；
+  // 2) 同一占位符多次出现时也能全部还原，不会在表格单元格里静默丢失公式。
   let result = html;
-  for (const { key, html: mathHtml } of blocks) {
-    result = result.replace(key, mathHtml);
-  }
+  result = result.replace(/\x00MATH_(\d+)\x00/g, (_m, n) => {
+    const block = blocks[Number(n)];
+    return block ? block.html : _m;
+  });
+
+  // 兜底：若占位符两侧的 NUL 分隔符被某些环节（部分网络/代理会对控制字符做清理）
+  // 剥离，导致上面的精确匹配失效，这里用容错匹配再次还原，确保内联公式不会凭空消失。
+  result = result.replace(/([^\dA-Za-z]|^)MATH_(\d+)(?=\D|$)/g, (_m, pre, n) => {
+    const block = blocks[Number(n)];
+    return block ? `${pre}${block.html}` : _m;
+  });
 
   return result;
 }
