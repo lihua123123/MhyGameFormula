@@ -229,16 +229,16 @@ $$
 
 **反应星扩散**：<span class="anemo">风属性</span>反应倍率：$0.75$，<span class="cryo">冰属性</span>反应倍率：$2$ | $3$
 
-> 特定情况下，<span class="anemo">**风**</span>触及<span class="cryo">**冰**</span>时，会创造「星辉风团·冰」，**风团**将在 **4.5s** 后引爆，造成一次<span class="stellar-swirl-cryo">冰元素星扩散反应伤害</span>，期间每次触发星扩散反应将造成一次<span class="stellar-swirl-anemo">风元素星扩散反应伤害</span>
+> 特定情况下，<span class="anemo">**风**</span>触及<span class="cryo">**冰**</span>时，会创造「星辉风旋」，**风旋**将在 **4.5s** 后引爆，造成一次<span class="stellar-swirl-cryo">冰属性星扩散反应伤害</span>，期间每次触发星扩散反应将造成一次<span class="stellar-swirl-anemo">风属性星扩散反应伤害</span>
 > <span class="stellar-swirl-anemo">风属性星扩散反应伤害</span>的**最终伤害**中首位角色必定为<span class="anemo">风属性</span>角色
 > <span class="stellar-swirl-cryo">冰属性星扩散反应伤害</span>的**最终伤害**中首位角色必定为<span class="cryo">冰属性</span>角色，次位必定为<span class="anemo">风属性</span>角色
 
-> 每次触发星扩散反应时，**风涡系数**会增加 $1$，最多增加至 $6$
-> 风团会在风涡系数至少为 $3$ 时提升大小，并增加伤害范围与<span class="cryo">冰属性</span>反应倍率，当风涡系数为 $6$ 时将提前引爆风团
-> 风团引爆时会为周围的敌人附着 $1U$ <span class="cryo">冰</span>并清空风涡系数
+> 每次触发星扩散反应时，**星辉风旋系数**会增加 $1$，最多增加至 $6$
+> 风旋会在星辉风旋系数至少为 $3$ 时提升大小，并增加伤害范围与<span class="cryo">冰属性</span>反应倍率，当星辉风旋系数为 $6$ 时将提前引爆风团
+> 风旋引爆时会为周围的敌人附着 $1U$ <span class="cryo">冰</span>并清空星辉风旋系数
 
 > 星扩散**无视防御**，**可以暴击**（取决于每个角色自己的暴击率和暴击伤害）
-> 「星辉风团·冰」爆炸后，还会短暂地赋予附近角色一次高跳能力
+> 「星辉风旋」爆炸后，还会短暂地赋予附近角色一次高跳能力
 
 ### 直伤星伤害
 
