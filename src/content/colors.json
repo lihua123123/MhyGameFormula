@@ -34,6 +34,7 @@
     "ether": "linear-gradient(135deg, #FF1493, #7B1FA2)",
     "lumiflux": "linear-gradient(135deg, #F8BBD0, #C2185B)",
     "abloom": "linear-gradient(135deg, #F0F0F0 0%, #FFFFFF 40%, #B0B0B0 100%)",
-    "disorder": "#ffffff"
+    "disorder": "#ffffff",
+    "maim": "linear-gradient(180deg, #f52d20 0%, #ffb3ad 50%, #f52d20 100%)"
   }
 }
