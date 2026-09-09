@@ -25,7 +25,7 @@
 
 > *独立乘区（常见的）*
 >
-> 失衡易伤区、直接攻击伤害、贯穿增伤区、异常增伤区
+> 失衡易伤区、直接攻击伤害、贯穿增伤区、异常增伤区、锐伤增伤区
 
 > 各乘区可以**统计的数值**上下限：
 >
@@ -54,6 +54,12 @@ $$
 
 ## [防御区](https://www.bilibili.com/video/BV1QmdaYxEAU)
 
+$$
+\begin{align*}
+	防御区 & = \frac{794}{防御系数 \times 794 \times 减穿系数 + 794 - 穿透值}
+\end{align*}
+$$
+
 **减防**和**无视防御**是加算关系，而**穿透率**与前者是乘算关系
 $$
 减穿系数 = (1 + 加防\% - 减防\% - 无视防御\% ) \times (1- 穿透率\%)
@@ -61,9 +67,7 @@ $$
 敌人的防御系数会根据其一级的防御值来换算
 $$
 \begin{align*}
-	防御系数 & = \frac{1 级基础防御值}{50} \\
-	\\
-	防御区 & = \frac{794}{防御系数 \times 794 \times 减穿系数 + 794 - 穿透值}
+	防御系数 & = \frac{1 级基础防御值}{50}	
 \end{align*}
 $$
 
@@ -152,11 +156,23 @@ $$
 
 >游戏内文本**锐暴伤害提升**实际指的是`锐化暴伤`，注意和**锐化伤害提升**区分
 
+### 残痕
+
+锋御代理人部分招式造成锐化伤害时会为敌人积累**<span class="maim">残痕值</span>**，当**<span class="maim">残痕值</span>**积累到 $600$ 点时会使敌人进入[**<span class="maim">残痕</span>**]，此时御锋代理人使用**特定招式**命中该敌人后会消耗一层[**<span class="maim">残痕</span>**]，并触发**<span class="maim">毁伤</span>**，单一敌人最多积累三层[**<span class="maim">残痕</span>**]
+
+> **<span class="maim">残痕值</span>**的积累视为全队共享，触发**<span class="maim">毁伤</span>**时仅使用**触发者面板**
+>
+> **<span class="maim">残痕值</span>**的积累与异常条不同的是，不会随着**<span class="maim">毁伤</span>**的触发次数而增加
+
+### 毁伤
+
+**<span class="maim">毁伤</span>**由御锋代理人触发，视为锐化伤害，与普通锐化伤害不同的是**<span class="maim">毁伤</span>**是范围伤害
+
 ---
 
 ## 异常积蓄值
 
-> 角色造成**属性伤害**的同时，会累积对应属性的**异常积蓄值**，并积累本次攻击时的**异常效果强度**
+> 角色造成**属性伤害**的同时，会累积对应属性的**异常积蓄值**，并记录本次攻击时的**异常效果强度**
 > 异常积蓄值累积到上限后，敌人将陷入**属性异常状态**，触发后一段时间内，该敌人不会再次陷入同属性的属性异常状态
 > 属性异常状态的效果，和参与累积异常积蓄值的角色及其贡献有关
 
@@ -234,6 +250,10 @@ $$
 | <span class="ether">侵蚀</span> | 62.5% | 20 | 使敌人受到攻击时触发一次<span class="ether">以太属性</span>异常伤害<br />触发间隔为 $0.5s$，持续 $10s$ | 1250% |
 | <span class="wind">风化</span> | 1250% | 1 | 使敌人受到的<span class="wind">**风属性**</span>**直接攻击伤害**提升 $10\%$，持续 $30s$<br /><span class="wind">侵染</span>：使敌人受到的首次接触的**非风属性的直接攻击伤害**提升 $10\%$，重新<span class="wind">风化</span>后重置 | 1250% |
 
+> 由代理人通过积累异常条造成的异常伤害在这里称为**一级异常伤害**，在此基础上造成的异常伤害被称为**二级异常伤害**
+
+> 后续内容均使用异常伤害的公式，基本上只改写**倍率**，因此仅对对应乘区进行解释
+
 ---
 
 ## 异化
@@ -244,16 +264,7 @@ $$
 
 $$
 \begin{align*}
-	异化系数 & = 流明属性积蓄点施加者的异常精通 \times 0.02\% + 异化系数提升\% \\
-	\\
-	异化伤害 & = (攻击力 \times 异常属性倍率 + 额外提升) \\
-    	& \times \frac{异常精通}{100} \times 暴击区 \times 防御区 \times 失衡易伤区 \\
-    	& \times trunc\left(1 + \frac{\text{等级} - 1}{59}, 4\right) \\
-    	& \times (1 - 增抗\% + 减抗\% + 抗穿\%) \\
-    	& \times (1 + 增伤\% - 弱伤\%) \\
-    	& \times (1 + 易伤\% - 减伤\%) \\
-    	& \times (1 + 异常增伤\% + 异常易伤\%) \\
-    	& \times (1 + 异化系数\%)
+	异化系数 & = 流明属性积蓄点施加者的异常精通 \times 0.02\% + 异化系数提升\%
 \end{align*}
 $$
 
@@ -261,80 +272,43 @@ $$
 >
 > <span class="lumiflux">流明属性</span>为特殊的变种属性时会保留其原属性的性质，该效果并无实战意义
 
-> <span class="lumiflux">异化</span>结算的异常效果将会继承原异常属性的效果，属于对应属性伤害
+> <span class="lumiflux">异化</span>效果相当于是一个放大镜，没有改变原异常伤害其他所有乘区，仅增加了异化区
 
 ---
 
-## 异常提现伤害
+## 异常提现伤害（二级异常伤害）
 
 异常伤害大多具有出伤后置的特点，而且随着环境的不断变化常规异常的出伤模式被多种条件所束缚，因此我们需要在能及时提现的新的异常伤害类型
 
-> 我将异常伤害的各个乘区分为：**施加者乘区**、**触发者乘区**
+> 首先需要将异常伤害的各个乘区分为：**施加者乘区**、**触发者乘区**
 >
 > **施加者乘区**：也就是`异常效果强度`
 > **触发者乘区**：倍率、异常暴击区、减防与无视防御、抗性区、异常增伤区、易伤区等
+
+$$
+\begin{align*}
+    二级异常伤害 & = (攻击力 \times \colorbox{orange}{异常属性倍率} + 额外提升) \\
+    	& \times \colorbox{orange}{暴击区} \times \colorbox{orange}{失衡易伤区} \\
+    	& \times \frac{794}{防御系数 \times 794 \times \colorbox{orange}{(1 + 加防\% - 减防\% - 无视防御\%)} \times (1- 穿透率\%) + 794 - 穿透值} \\
+    	& \times \frac{异常精通}{100} \times trunc\left(1 + \frac{\text{等级} - 1}{59}, 4\right) \\
+    	& \times \colorbox{orange}{(1 - 增抗\% + 减抗\% + 抗穿\%)} \\
+    	& \times (1 + 增伤\% - 弱伤\%) \\
+    	& \times \colorbox{orange}{(1 + 易伤\% - 减伤\%)} \\
+    	& \times \colorbox{orange}{(1 + 异常增伤\% + 异常易伤\%)} \\
+    	& \times (1 + 异化系数\%)
+\end{align*}
+$$
 
 > 已知4种提现异常伤害的伤害类型（<span class="disorder">紊乱</span>、<span class="abloom">异放</span>、<span class="wind">乱流</span>、<span class="lumiflux">耀变</span>）均遵循以下规则：
 >
 > 1. 触发异常效果后，以上伤害类型中**施加者乘区**的值不会根据队伍给予的增益的增缺而改变
 > 2. **触发者乘区**具有很强的标签化特色，具体表现为伤害的颜色，如果与原伤害颜色相同则可以享受对应属性异常增益，反之则只能享受特定对应的增益
-> 3. ==属性==和==属性异常==是两个标签，由第2条可知<span class="disorder">紊乱</span>和<span class="lumiflux">耀变</span>不会继承`简`的<span class="physical">强击</span>暴击效果以及单一异常增伤效果，但由于属性归类在施加者乘区，所以可以享受对应属性的减抗
+> 3. ==属性==和==属性异常==是两个标签，由第2条可知<span class="disorder">紊乱</span>和<span class="lumiflux">耀变</span>不会继承`简`的<span class="physical">强击</span>暴击效果以及单一异常增伤效果，但由于属性归类在**施加者乘区**，所以可以享受对应属性的减抗
 >
 > Q：维林娜可以给予 $10\%$ 的<span class="wind">风化</span>增伤，为什么队伍中其他人的<span class="abloom">异放</span>无法享受？
 > A：因为维林娜的<span class="wind">风化</span>增伤只作用于自己（即施加者），而异常增伤区在触发者乘区，因此只有维林娜自己的<span class="abloom">异放</span>可以享受该效果
 
-
-
-### 异放
-
-<span class="abloom">异放</span>是一种特殊的结算异常属性影响下的敌人的伤害方式，此类攻击不会影响当前异常状态
-$$
-\begin{align*}
-	异放倍率 & = 异常属性倍率 \times 代理人技能描述比例 \\
-	\\
-    异放伤害 & = (攻击力 \times 异放倍率 + 额外提升) \\
-    	& \times \frac{异常精通}{100} \times 暴击区 \times 防御区 \times 失衡易伤区 \\
-    	& \times trunc\left(1 + \frac{\text{等级} - 1}{59}, 4\right) \\
-    	& \times (1 - 增抗\% + 减抗\% + 抗穿\%) \\
-    	& \times (1 + 增伤\% - 弱伤\%) \\
-    	& \times (1 + 易伤\% - 减伤\%) \\
-    	& \times (1 + 异常增伤\% + 异常易伤\%) \\
-    	& \times (1 + 异化系数\%)
-\end{align*}
-$$
-
-部分代理人的<span class="abloom">异放</span>结算为固定倍率，直接查询即可，以下列出需要换算的代理人的<span class="abloom">异放</span>倍率
-
-| 属性 | 倍率 | 格莉丝 | 柏妮思 | 薇薇安 | 爱芮 | 南宫羽 |
-| :-: | :-: | :-: | :-: | :-: | :-: | :-: |
-| <span class="physical">物理</span> | <span class="physical">713%</span> | <span class="physical">356.5%</span> | <span class="physical">285.2%</span> | <span class="physical">$0.53475\% \times 异常精通$</span> | <span class="physical">$1.7825\% \times 初始掌控$</span> | <span class="physical">449.19%</span> |
-| <span class="ice">冰</span> | <span class="ice">500%</span> | <span class="ice">350%</span> | <span class="ice">300%</span> | <span class="ice">$0.54\% \times 异常精通$</span> | <span class="ice">$1.8\% \times 初始掌控$</span> | <span class="ice">450%</span> |
-| <span class="fire">火</span> | <span class="fire">50%</span> | <span class="fire">350%</span> | <span class="fire">300%</span> | <span class="fire">$0.4\% \times 异常精通$</span> | <span class="fire">$1.785\% \times 初始掌控$</span> | <span class="fire">450%</span> |
-| <span class="electric">电</span> | <span class="electric">125%</span> | <span class="electric">350%</span> | <span class="electric">300%</span> | <span class="electric">$0.4\% \times 异常精通$</span> | <span class="electric">$1.7875\% \times 初始掌控$</span> | <span class="electric">450%</span> |
-| <span class="ether">以太</span> | <span class="ether">62.5%</span> | <span class="ether">350%</span> | <span class="ether">300%</span> | <span class="ether">$0.384375\% \times 异常精通$</span> | <span class="ether">$1.71875\% \times 初始掌控$</span> | <span class="ether">450%</span> |
-| <span class="wind">风</span> | <span class="wind">1250%</span> | <span class="wind">350%</span> | <span class="wind">300%</span> | <span class="wind">$0.4\% \times 异常精通$</span> | <span class="wind">$1.75\% \times 初始掌控$</span> | <span class="wind">450%</span> |
-
-### 耀变
-
-<span class="lumiflux">耀变</span>伤害是<span class="lumiflux">流明属性</span>代理人触发<span class="lumiflux">异化</span>反应后会记录本次<span class="lumiflux">异化</span>反应的**异常效果强度**，对敌人造成固定倍率的已储存的所有**<span class="lumiflux">虚耀</span>**的属性异常伤害
-$$
-\begin{align*}
-	耀变倍率 & = 固定倍率\% \times (1 + 流明属性积蓄点施加者的异常精通 \times 0.2\%) \\
-	\\
-    耀变伤害 & = (攻击力 \times 耀变倍率 + 额外提升) \\
-    	& \times \frac{异常精通}{100} \times 防御区 \times 失衡易伤区 \\
-    	& \times trunc\left(1 + \frac{\text{等级} - 1}{59}, 4\right) \\
-    	& \times (1 - 增抗\% + 减抗\% + 抗穿\%) \\
-    	& \times (1 + 增伤\% - 弱伤\%) \\
-    	& \times (1 + 易伤\% - 减伤\%) \\
-    	& \times (1 + 异常增伤\% + 异常易伤\%) \\
-    	& \times (1 + 异化系数\%)
-\end{align*}
-$$
-
----
-
-## [紊乱](https://www.bilibili.com/video/BV1szDaYPExG)
+### [紊乱](https://www.bilibili.com/video/BV1szDaYPExG)
 
 > 对已经陷入`属性异常状态`的敌人，再次施加其他类型的属性异常效果时，将覆盖原本的状态，并触发**<span class="disorder">紊乱</span>**效果
 > 触发后 $3s$ 内，无法再次触发<span class="disorder">紊乱</span>效果
@@ -359,21 +333,12 @@ $$
 	\end{aligned}
 	\right.
 	\qquad (t为剩余时间) \\
-	\\
-    紊乱伤害 & = (攻击力 \times 紊乱倍率 + 额外提升) \\
-    	& \times \frac{异常精通}{100} \times 防御区 \times 失衡易伤区 \\
-    	& \times trunc\left(1 + \frac{\text{等级} - 1}{59}, 4\right) \\
-    	& \times (1 - 增抗\% + 减抗\% + 抗穿\%) \\
-    	& \times (1 + 增伤\% - 弱伤\%) \\
-    	& \times (1 + 易伤\% - 减伤\%) \\
-    	& \times (1 + 异常增伤\% + 异常易伤\%) \\
-    	& \times (1 + 异化系数\%) \\
     \\
     失衡倍率 & = 200\% \\
 \end{align*}
 $$
 
-### 极性紊乱
+#### [极性紊乱](https://www.bilibili.com/video/BV1JZS8YnELU)
 
 |                   属性                    |                 <span class="disorder">紊乱总倍率</span>                 |                     柳                      |                    南宫羽                    |
 | :---------------------------------------: | :----------------------------------------: | :-----------------------------------------: | :------------------------------------------: |
@@ -388,9 +353,27 @@ $$
 > 上述倍率为完美结算后的倍率
 > `柳`的核心被动会使上述<span class="disorder">极性紊乱</span>倍率固定增加 $37.5\%$ 且天赋中 $3200\% × 异常精通$ 视为**额外提升**部分
 
----
+### [异放](https://www.bilibili.com/video/BV1juLKzvE4E)
 
-## [乱流](https://www.bilibili.com/video/BV134LQ66E7U)
+<span class="abloom">异放</span>是一种特殊的结算异常属性影响下的敌人的伤害方式，此类攻击不会影响当前异常状态
+$$
+\begin{align*}
+	异放倍率 & = 异常属性倍率 \times 代理人技能描述比例 \\
+\end{align*}
+$$
+
+部分代理人的<span class="abloom">异放</span>结算为固定倍率，直接查询即可，以下列出需要换算的代理人的<span class="abloom">异放</span>倍率
+
+| 属性 | 倍率 | 格莉丝 | 柏妮思 | 薇薇安 | 爱芮 | 南宫羽 |
+| :-: | :-: | :-: | :-: | :-: | :-: | :-: |
+| <span class="physical">物理</span> | <span class="physical">713%</span> | <span class="physical">356.5%</span> | <span class="physical">285.2%</span> | <span class="physical">$0.53475\% \times 异常精通$</span> | <span class="physical">$1.7825\% \times 初始掌控$</span> | <span class="physical">449.19%</span> |
+| <span class="ice">冰</span> | <span class="ice">500%</span> | <span class="ice">350%</span> | <span class="ice">300%</span> | <span class="ice">$0.54\% \times 异常精通$</span> | <span class="ice">$1.8\% \times 初始掌控$</span> | <span class="ice">450%</span> |
+| <span class="fire">火</span> | <span class="fire">50%</span> | <span class="fire">350%</span> | <span class="fire">300%</span> | <span class="fire">$0.4\% \times 异常精通$</span> | <span class="fire">$1.785\% \times 初始掌控$</span> | <span class="fire">450%</span> |
+| <span class="electric">电</span> | <span class="electric">125%</span> | <span class="electric">350%</span> | <span class="electric">300%</span> | <span class="electric">$0.4\% \times 异常精通$</span> | <span class="electric">$1.7875\% \times 初始掌控$</span> | <span class="electric">450%</span> |
+| <span class="ether">以太</span> | <span class="ether">62.5%</span> | <span class="ether">350%</span> | <span class="ether">300%</span> | <span class="ether">$0.384375\% \times 异常精通$</span> | <span class="ether">$1.71875\% \times 初始掌控$</span> | <span class="ether">450%</span> |
+| <span class="wind">风</span> | <span class="wind">1250%</span> | <span class="wind">350%</span> | <span class="wind">300%</span> | <span class="wind">$0.4\% \times 异常精通$</span> | <span class="wind">$1.75\% \times 初始掌控$</span> | <span class="wind">450%</span> |
+
+### [乱流](https://www.bilibili.com/video/BV134LQ66E7U)
 
 >对已经陷入`属性异常状态`的敌人，再次施加其他类型的属性异常效果时，若其中一种异常效果为<span class="wind">风化</span>，将不触发`紊乱`效果，而改为触发**<span class="wind">乱流</span>**效果：触发时，对<span class="wind">风化</span>外的另一种属性异常状态进行结算，造成对应属性的**范围**异常伤害
 ><span class="wind">乱流</span>效果始终被认为是<span class="wind">风化</span>状态施加者触发
@@ -414,16 +397,7 @@ $$
         & 650\% + 62.5\% \times \lfloor \frac{t}{0.5} \rfloor && 侵蚀
     \end{aligned}
     \right.
-    \qquad (t为剩余时间) \\
-    \\
-    乱流伤害 & = (攻击力 \times 乱流倍率 + 额外提升) \\
-    	& \times \frac{异常精通}{100} \times 暴击区 \times 防御区 \times 失衡易伤区 \\
-    	& \times trunc\left(1 + \frac{\text{等级} - 1}{59}, 4\right) \\
-    	& \times (1 - 增抗\% + 减抗\% + 抗穿\%) \\
-    	& \times (1 + 增伤\% - 弱伤\%) \\
-    	& \times (1 + 易伤\% - 减伤\%) \\
-    	& \times (1 + 异常增伤\% + 异常易伤\%) \\
-    	& \times (1 + 异化系数\%)
+    \qquad (t为剩余时间)
 \end{align*}
 $$
 
@@ -436,19 +410,16 @@ $$
 | <span class="electric">感电</span> | <span class="electric">1250%</span> | <span class="electric">1900%</span> |
 | <span class="ether">侵蚀</span> | <span class="ether">1250%</span> | <span class="ether">1900%</span> |
 
----
+### [耀变](https://www.bilibili.com/video/BV1Pg3k6dE7R/)
 
-## 残痕
+<span class="lumiflux">耀变</span>伤害是<span class="lumiflux">流明属性</span>代理人触发<span class="lumiflux">异化</span>反应后会记录本次<span class="lumiflux">异化</span>反应的**异常效果强度**，对敌人造成固定倍率的已储存的所有**<span class="lumiflux">虚耀</span>**的属性异常伤害
+$$
+\begin{align*}
+	耀变倍率 & = 固定倍率\% \times (1 + 流明属性积蓄点施加者的异常精通 \times 0.2\%) \\
+\end{align*}
+$$
 
-锋御代理人部分招式造成锐化伤害时会为敌人积累**<span class="maim">残痕值</span>**，当**<span class="maim">残痕值</span>**积累到 $600$ 点时会使敌人进入[**<span class="maim">残痕</span>**]，此时御锋代理人使用**特定招式**命中该敌人后会消耗一层[**<span class="maim">残痕</span>**]，并触发**<span class="maim">毁伤</span>**，单一敌人最多积累三层[**<span class="maim">残痕</span>**]
-
-> **<span class="maim">残痕值</span>**的积累视为全队共享，触发**<span class="maim">毁伤</span>**时仅使用**触发者面板**
->
-> **<span class="maim">残痕值</span>**的积累与异常条不同的是，不会随着**<span class="maim">毁伤</span>**的触发次数而增加
-
-### 毁伤
-
-**<span class="maim">毁伤</span>**由御锋代理人触发，视为锐化伤害，与普通锐化伤害不同的是**<span class="maim">毁伤</span>**是范围伤害
+> `蕾米埃尔`的一画和六画造成的<span class="lumiflux">耀变</span>伤害，会额外计算 $(1 + 0.025 \times lv)$ 作为补偿等级系数
 
 ---
 
@@ -542,4 +513,3 @@ $$
     \qquad (d为敌我距离)
 \end{align*}
 $$
-[www.bilibili.com/video/BV1Bx4y1t7WD]:

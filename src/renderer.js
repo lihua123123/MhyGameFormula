@@ -77,7 +77,10 @@ export function renderMarkdown(text) {
   text = text.replace(/\$\$([\s\S]+?)\$\$/g, (_m, math) => {
     const key = placeholder();
     try {
-      const rendered = katex.renderToString(math.trim(), {
+      // KaTeX 默认多行公式（align*/aligned 等）的每行间距偏紧。
+      // 通过前置 \def\arraystretch 统一加大所有展示公式的行距。
+      const body = `\\def\\arraystretch{1.6} ${math.trim()}`;
+      const rendered = katex.renderToString(body, {
         displayMode: true,
         throwOnError: false,
         strict: false,
